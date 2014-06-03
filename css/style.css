@@ -1,8 +1,6 @@
 .wrapper {
-	margin: 0px auto;
 	margin-top:80px;
 	padding:15px;
-	width: 70%;
 }
 
 .wrapper h1{
@@ -92,6 +90,12 @@
 .shList li:empty:before {
   content: attr(placeholder);
 }
+.warningBox:focus {
+    outline: 0;
+    border: 1px solid #e53a3a !important;
+    -webkit-box-shadow: inset 0 1px 1px #e65a5a, 0 0 8px #e65a5a;
+    box-shadow: inset 0 1px 1px #e65a5a), 0 0 8px #e65a5a;
+}
 /*
 table{
     border:2px solid #47402B;
@@ -108,8 +112,9 @@ th{
     padding:15px;
 }
 td{
-    border-collapse:collapse;
-    padding:15px;
+    max-width:1px;
+    overflow:hidden;
+    text-overflow:ellipsis;
 }
 td.editable:hover{
     cursor: pointer;
