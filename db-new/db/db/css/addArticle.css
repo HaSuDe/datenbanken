@@ -1,0 +1,29 @@
+.createPanel{
+	max-width: 1000px;
+	margin-left: auto ;
+  	margin-right: auto ;
+}
+
+.form-group{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.btn-group{
+    margin-bottom: 30px;
+}
+
+.optionMenu{
+	min-width: 100px;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	outline: rgb(91, 157, 217) auto 5px;
+}
+
+.dropArea{
+	margin-top: 20px;
+}
+
+.addButton{
+	padding-bottom: 10px;
+}

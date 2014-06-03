@@ -1,0 +1,129 @@
+<html>
+
+    <?php 
+      session_start(); 
+    ?> 
+
+    <?php 
+      if(!isset($_SESSION["username"])) {
+        header('location: index.html');
+      }
+    ?>
+    
+    <head>
+        <title>Create Supermarket</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="./bs/css/bootstrap.min.css" rel="stylesheet">
+        <link href="./css/editableTable.css" rel="stylesheet">
+        <link href="./css/style.css" rel="stylesheet">
+        <link href="./css/addSupermarket.css" rel="stylesheet">
+        <!-- Google web fonts -->
+        <link href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel='stylesheet' />
+    </head>
+    <body>
+        <section id="container">
+            <!-- Navbar start -->
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+                <div class="container-fluid">
+                  <!-- Brand and toggle get grouped for better mobile display -->
+                  <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Cool Logo Here</a>
+                  </div>
+
+                  <!-- Collect the nav links, forms, and other content for toggling -->
+                  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">  
+                    <div class="nav navbar-nav navbar-right">
+                        <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo "".$_SESSION["username"]."" ?><b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="./home.html">Home</a></li>
+                          <li><a href="./userLists.html">My Lists</a></li>
+                          <li><a href="./createArticle.php">Create Article</a></li>
+                          <li class="active"><a href="./createSupermarket.php">Create Supermarket</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#">Settings</a></li>
+                          <li class="divider"></li>
+                          <li><a href="./logout.php">Logout</a></li>
+                        </ul>
+                      </li>
+                      </ul>
+                    </div>
+                  </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+              </nav>
+            <!-- Navbar end -->
+            <!--main content start-->
+            <section id="main-content">
+                <section class="wrapper">
+                  <div class="panel panel-default createLable">
+                      
+                    <div class="row">
+                    <div class="col-md-12">
+                    <header class="panel-heading">
+                        <b>Create a new Supermarket</b>
+                    </header>
+                    </div>
+                    </div>
+                      
+                    <div class="panel-body shList">
+
+                        
+                      <div class="col-md-12">
+                            <form class="form-reg" action="./addSupermarket.php" method="post">
+                              <div class="form-group">
+                                <!-- Supermarket Name -->
+                                <label>Name</label>
+                                <input type="text" class="form-control" name="supermarketName" placeholder="Enter Article Name">  
+                              </div>
+                              <div class="form-group">
+                                <!-- Supermarket Street -->
+                                <label>Street</label>
+                                <input type="text" class="form-control" name="supermarketStreet" placeholder="Enter Street of Supermarket">  
+                              </div>
+                              <div class="form-group">
+                                <!-- Supermarket City -->
+                                <label>City</label>
+                                <input type="text" class="form-control" name="supermarketCity"placeholder="Enter City of Supermarket">  
+                              </div>
+                              <div class="form-group">
+                                <!-- Supermarket ZipCode -->
+                                <label>Zip Code</label>
+                                <input type="text" class="form-control" name="supermarketZipCode"placeholder="Enter Zip Code of Supermarket">  
+                              </div>
+                              <div class="form-group">
+                                <!-- Supermarket ZipCode -->
+                                <label>Country</label>
+                                <input type="text" class="form-control" name="supermarketCountry"placeholder="Enter Country of Supermarket">  
+                              </div>
+                              <div class="form-group">
+                                <!-- Supermarket ZipCode -->
+                                <label>Position</label>
+                                <input type="text" class="form-control" name="supermarketLatitude"placeholder="Enter Latitude of Supermarket">  
+                                <input type="text" class="form-control" name="supermarketLongitude"placeholder="Enter Longitude of Supermarket">  
+                              </div>
+                              <div class="form-group addButton">
+                                <button type="submit" class="btn btn-default">Create Supermarket</button>
+                              </div>
+                            </form>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+            </section>
+            <!-- main content end -->                        
+        </section>
+
+        <!-- JQuery -->
+        <script src="./js/jquery.js"></script>
+        <!-- Bootstrap -->
+        <script src="./bs/js/bootstrap.min.js"></script> 
+    </body>
+</html>

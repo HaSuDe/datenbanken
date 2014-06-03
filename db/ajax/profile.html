@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Shopping App</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="./bs/css/bootstrap.min.css" rel="stylesheet">
+        <link href="./css/editableTable.css" rel="stylesheet">
+        <link href="./css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <section id="container">
+            <!-- Navbar start -->
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+                <div class="container-fluid">
+                  <!-- Brand and toggle get grouped for better mobile display -->
+                  <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Cool Logo Here</a>
+                  </div>
+
+                  <!-- Collect the nav links, forms, and other content for toggling -->
+                  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">	
+                    <div class="nav navbar-nav navbar-right">
+                      <form class="navbar-form navbar-left" role="search">
+                              <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Benutzername">
+                                <input type="text" class="form-control" placeholder="Passwort">
+                              </div>
+                              <button id="loginBtn" type="submit" class="btn btn-default">Login</button>
+                          </form>
+                    </div>
+                  </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+              </nav>
+            <!-- Navbar end -->
+            <!--main content start-->
+            <section id="main-content">
+                <section class="wrapper">
+	                    <h1>Your Profile<br/> <small>type to fill</small></h1>
+                      <div class="col-md-11"></div><button id="addRowBtn" class="btn btn-default" type="submit">Add Row</button>
+	                    <div class="alert alert-error hide">
+							         That would cost too much
+	                    </div>
+	                    <table id="mainTable" class="table table-striped">
+	                      <thead><tr><th>Article</th><th>Amount</th><th>Prize</th><th>Market</th></tr></thead>
+	                      <tbody>
+	                      </tbody>
+	                                  <tfoot><tr><th><strong>TOTAL</strong></th><th></th><th></th><th></th></tr>
+	                    </table>
+                </section>
+            </section>
+            <!-- main content end -->
+        </section>
+
+       	<!-- JQuery -->
+       	<script src="./js/jquery.js"></script>
+       	<!-- Bootstrap -->
+        <script src="./bs/js/bootstrap.min.js"></script> 
+        <!-- EditableTalbe -->
+        <script src="./js/mindmup-editabletable.js"></script>
+    	  <script src="./js/numeric-input-example.js"></script>
+        <script src="./js/tableJs.js"></script>
+        <!-- login -->
+        <script src="./js/login.js"></script>
+    </body>
+</html>

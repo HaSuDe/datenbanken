@@ -1,0 +1,14 @@
+.createLable{
+	max-width: 1000px;
+	margin-left: auto ;
+  	margin-right: auto ;
+}
+
+.form-group{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.addButton{
+	padding-bottom: 10px;
+}

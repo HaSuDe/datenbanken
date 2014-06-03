@@ -1,0 +1,121 @@
+.wrapper {
+	margin: 0px auto;
+	margin-top:80px;
+	padding:15px;
+	width: 70%;
+}
+
+.wrapper h1{
+	font-weight: bold;
+}
+
+.panel-body{
+	background-color: #eeeeee;
+}
+
+.borderBox{
+	padding: 60px;
+	margin-bottom: 30px;
+	font-size: 18px;
+	font-weight: 200;
+	line-height: 30px;
+	color: inherit;
+	background-color: #eeeeee;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+}
+
+/* Registration */
+.body-register{
+    background-color: grey;
+    background: #1FB3A3 url("../images/background-reg.jpg") no-repeat fixed 0 0 / cover ;
+    background-size:cover;
+    width:100%;
+    height:100%;
+}
+.login-div{
+    max-width:330px;
+    margin:100px auto;
+	border-radius: 5px;
+}
+
+.form-reg{
+    margin-bottom: 10px;
+    background:#fff;
+    border-radius:5px;
+    -webkit-border-radius:5px;
+}
+.form-reg h2.form-reg-header {
+    margin:0;
+    padding:35px 15px;
+    text-align:center;
+    background:#27408B;
+    border-radius:5px 5px 0 0;
+    -webkit-border-radius:5px 5px 0 0;
+    color:#fff;
+    font-size:18px;
+    text-transform:uppercase;
+    font-weight:300;
+    font-family:'Open Sans',sans-serif;
+    border-bottom:10px solid #4A708B;
+}
+.form-reg .form-input {
+    position:relative;
+    font-size:16px;
+    height:auto;
+    padding:10px;
+    width: 100%;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+}
+.btn-login {
+    background:#4A708B;
+    color:#fff;
+    width: 100%;
+    height: 40px;
+    text-transform:uppercase;
+    font-weight:300;
+    font-family:'Open Sans',sans-serif;
+    border: none;
+    border-radius: 3px;
+}
+.btn-login:hover{
+	cursor: pointer;
+}
+.register{
+	font-size: 12px;
+	color: blue;
+}
+/* List */
+.shList li:empty:before {
+  content: attr(placeholder);
+}
+table{
+    border:2px solid #47402B;
+    background-color: #FFF68F;
+    width: 100%;
+}
+tr{
+    border:1px solid #F0F0F0;
+}
+th{
+    border-collapse:collapse;
+    padding:15px;
+}
+td{
+    border-collapse:collapse;
+    padding:15px;
+}
+td.editable:hover{
+    cursor: pointer;
+}
+td.cellEditing{
+    width: 25%;
+}
+td.editable .cellEditing input[type=text]{
+    width:100%;
+    border:0;
+    background-color:rgb(255,253,210);  
+}
