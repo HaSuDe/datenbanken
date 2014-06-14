@@ -1,4 +1,5 @@
 $(document).ready(function() {
+		console.log("Site loaded");
 		var rowNmbr = 0;
 
 		var list = document.getElementById('list');
@@ -14,7 +15,11 @@ $(document).ready(function() {
 			location.reload();
 		});
 
-// --------------------------- On click	----------------------------//	
+		// Load prizes and look how many rows are there
+		loadPrizes();
+		rowNmbr = $('#myTable tbody').children('tr').length;
+
+		// --------------------------- On click	----------------------------//	
 		$(document).on('click', function(e) {
 
 			if($(event.target).hasClass('editable')) {
@@ -23,12 +28,13 @@ $(document).ready(function() {
 				$(event.target).unbind('blur');
 				$(event.target).unbind('keypress');
 				$(event.target).unbind('keyup');
+				$('#livesearch li').unbind('click');
 
 				var originalContent = $(event.target).text(); 
 				console.log(originalContent);
 
 				// Text löschen
-				$(event.target).html("");
+				$(event.target).text("");
 
 				$(event.target).attr('contentEditable', 'true');
 
@@ -36,6 +42,13 @@ $(document).ready(function() {
 
 				// Wenn nach dem Focus ein Key gepressed wird
 				$(event.target).on('keypress', function(e) {
+					// only when pressed field is article and div isn't already set
+					if ($(event.target).hasClass('article')) {
+						// if text is empty hide field
+						if($(event.target).text() == "") 
+							$('#livesearch').remove();
+					}
+
 					var code = e.keyCode || e.which;
 					// Confirm with enter
 					if(code == 13) { //Enter keycode
@@ -64,13 +77,28 @@ $(document).ready(function() {
 						} else {
 							$(event.target).removeClass('warningBox');
 						}
+					// if text is empty hide field	
+					} else if ($(event.target).text() == ""){
+						$('#chooseDiv').remove();
+
+					// else show livesearch ---------------------------------------
 					} else {
-						showResult($(event.target).text());
+						// create div for result if not there
+						if ($(event.target).parent().parent().children('div').length <= 0) {
+							var div = '<div id="chooseDiv"><ul id="livesearch"></ul></div>';
+							$(event.target).parent().after(div);
+						}
+						// fill with content
+						showResult($(event.target).text());	
 					}
 				});
 				
 				// ------------------------ Wenn der Focus weg geht ----------------------//
-				$(event.target).blur(function(){
+				$(event.target).on('blur', function(e){
+
+		    		// destroy livesearch div
+		    		$('#chooseDiv').remove();
+
 		    		// if no Text reset text
 		    		if($(event.target).text() == "") {
 		    			console.log(originalContent);
@@ -85,41 +113,90 @@ $(document).ready(function() {
 						}
 					// else try to set the new text and fill in the best prize and the market
 		    		} else {
-						var articleName = $(event.target).text();
-						// Change Prize and Market for Row
-						$.get( "ajax/getBestPrize.php", {article: articleName}, function(data) {
-							$('#myTable td.prize:eq(' + rowNmbr +')').text(data.prize);
-							$('#myTable td.market:eq(' + rowNmbr +')').text(data.market);
-							// add new Row
-							// just add new Row when there is no unfilled Row
-							var tmpRow = $(e.target).parent().attr('id');
+						var articleName = $(e.target).text();
+						var tmpRow = $(e.target).parent().attr('id');
 							tmpRow = tmpRow.match(/\d+/);
-							console.log("tmpRow: " + tmpRow + "rowNmbr: " + rowNmbr);
-							if (tmpRow <= rowNmbr) {
-								$('#myTable > tbody:first').append('<tr id="tableRow' + rowNmbr + '"> <td class="editable article">Article</td> <td class="editable amount" >1</td>' + 
-														   '<td class="prize">Prize</td> <td class="market">Market</td> </tr> </tbody>');
-								rowNmbr++;
-							}									
-						}, 'json')
-						// if something went wrong, give error message and reset text
-						.fail(function(data) {
-							alertify.error("Oops Something went wrong please try again!");
-							$(e.target).text(originalContent);
-							console.log("Something went wrong in getBestPrize.php. Maybe no entry found?");
-							console.log(data);
-						})
+						getPrize(tmpRow, articleName, rowNmbr, true);
 					}
-					// remove warningBox if there
+
+		    		// remove warningBox if there
 		    		$(event.target).removeClass('warningBox');
-		    		$('#livesearch').html("");
-					$('#livesearch').css("border, 0px");
 		    	});
+			/* ------------------ Click on market field --------------------------- */
+		    } else if ($(event.target).hasClass('market')) {
+		    	console.log("Choose Market");
+		    	// create div for result if not there
 		    }
+		});
+
+		/* ----------------------- Mousedown Event for LiveClick (fires before Blur) ---------------------------------- */
+		$(document).mousedown(function(e) {
+			// if mousedown is performed on LiElemnt in Livesearch
+			if (event.target.tagName == "LI" && $(e.target).parent().parent().attr('id') == 'chooseDiv') {
+				// fill table cell
+				var cell2Fill = $(e.target).parent().parent().prev().children()[0]
+				$(cell2Fill).text($(e.target).text());
+			}
 		});
 
 		loadToDo();
 });
 
+function getPrize(row, articleN, rowNmbr, clicked){
+	console.log("getting Prize");
+	// Change Prize and Market for Row
+	console.log(articleN);
+	$.get( "ajax/getBestPrize.php", {article: articleN}, function(data) {
+		console.log(data[0]);
+		$('#myTable td.prize:eq(' + row +')').text(data[0].prize);
+		// if more then 1 row is returned make Markets selectable
+		if (data.length > 1) {
+			$('#myTable td.market:eq(' + row +')').text("");
+			$('#myTable td.market:eq(' + row +')').append('<select></select>');
+			for (var i = 0; i < data.length; i++) {
+				$('#myTable td.market:eq(' + row +') select').append('<option>' + data[i].market + '</option>')
+			}
+			// set onChange listener to field
+			$('#myTable td.market:eq(' + row +') select').on('change', function(e) {
+				// get index 2 display right prize
+				var sqlRowIndex = $(e.target).find('option:selected').index();
+				$('#myTable td.prize:eq(' + row +')').text(data[sqlRowIndex].prize);
+			})
+		} else
+			$('#myTable td.market:eq(' + row +')').text(data[0].market);
+
+		// add new Row
+		// just add new Row when there is no unfilled Row
+		console.log("tmpRow: " + row + "rowNmbr: " + rowNmbr);
+		if (row == rowNmbr) {
+			rowNmbr++;
+			$('#myTable > tbody:first').append('<tr id="tableRow' + row + '"> <td class="editable article">Article</td> <td class="editable amount" >1</td>' + 
+									   '<td class="prize">Prize</td> <td class="market">Market</td> </tr> </tbody>');
+		}									
+	}, 'json')
+	// if something went wrong, give error message and reset text
+	.fail(function(data) {
+		alertify.error("Oops Something went wrong please try again! Maybe its just a typing mistake :)");
+		if(clicked)
+			$(e.target).text(originalContent);
+		console.log("Something went wrong in getBestPrize.php. Maybe no entry found? Or just not connected in time.");
+		console.log(data);
+	})
+}
+
+function loadPrizes(){
+	// get tbody
+	var tbody = $('#myTable tbody');
+	// call get Prize for every table row
+	for(var i = 0; i < tbody.children('tr').length; i ++) {
+		var row = tbody.children('tr')[i];
+		if($(row).find('.article').text() != "Type here for new Article" && $(row).find('.prize').text() == "Prize") {
+			var article = $(row).find('.article').text();
+			getPrize(i, article, tbody.children('tr').length - 1, false);
+		}
+	}
+	
+};
 
 function showResult(str) {
 	if (str.length==0) {
@@ -135,8 +212,7 @@ function showResult(str) {
 	}
 	xmlhttp.onreadystatechange=function() {
 	if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-	  $('#livesearch').html(xmlhttp.responseText);
-	  $('#livesearch').css("border, 1px solid #A5ACB2");
+	  $('#livesearch').html(xmlhttp.responseText);;
 	}
 	}
 	xmlhttp.open("GET","livesearch.php?q="+str,true);

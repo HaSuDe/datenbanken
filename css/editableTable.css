@@ -1,15 +1,38 @@
-/* 
- * this CSS is not part of the widget, it is here just as an example of the demo page styling.... 
- * 
- * Don't copy this one, roll your own. One of the key things about the widget is that 
- * it allows you to do your own styling!
- *
- */
-td:focus {
-	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7ab5d3;
-	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7ab5d3;
-	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7ab5d3;	
-	outline: rgb(91, 157, 217) auto 5px;
+/* List */
+.shList li:empty:before {
+  content: attr(placeholder);
+}
+.warningBox:focus {
+    outline: 0;
+    border: 1px solid #e53a3a !important;
+    -webkit-box-shadow: inset 0 1px 1px #e65a5a, 0 0 8px #e65a5a;
+    box-shadow: inset 0 1px 1px #e65a5a), 0 0 8px #e65a5a;
+}
+tr{
+    border:1px solid #F0F0F0;
+}
+th{
+    border-collapse:collapse;
+    padding:15px;
+}
+td{
+    max-width:1px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+td.editable:hover{
+    cursor: pointer;
+}
+td.cellEditing{
+    width: 25%;
+}
+td.editable .cellEditing input[type=text]{
+    width:100%;
+    border:0;
+    background-color:rgb(255,253,210);  
+}
+.table{
+    background-color: #FFF68F;
 }
 input.error {
 	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px red;
@@ -46,5 +69,32 @@ html>body table.scrollable tbody {
 html>body table.scrollable td, html>body table.scrollable th {
 	width: 200px
 }
-
+#chooseDiv {
+	position:absolute;
+	background-color: white;
+	z-index: 1500;
+	border: 2px solid #c6c6c6;
+	border-radius: 5px;
+	padding: 5px;
+}
+ul, li {
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+}
+#livesearch li:hover{
+	cursor: pointer;
+	background-color: #e0dede;
+	border-radius: 5px;
+}
+select{
+	border: 0px;
+	background-color: #FFF68F;
+	border-radius: 5px;
+	padding: 5px;
+}
+select option {
+	padding: 5px;
+	border-radius: 5px;
+}
 

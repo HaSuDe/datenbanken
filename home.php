@@ -48,7 +48,7 @@ and open the template in the editor.
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo "".$_SESSION["username"]."" ?><b class="caret"></b></a>
                         <ul class="dropdown-menu">
                           <li class="active"><a href="./home.html">Home</a></li>
-                          <li><a href="./userLists.html">My Lists</a></li>
+                          <li><a href="./userLists.php">My Lists</a></li>
                           <li class=><a href="./createArticle.php">Create Article</a></li>
                           <li class=><a href="./createSupermarket.php">Create Supermarket</a></li>
                           <li class="divider"></li>
@@ -72,7 +72,22 @@ and open the template in the editor.
                     </div>
                         <table id="myTable" class="table">
                           <thead> <tr> <th>Article</th> <th>Amount</th> <th>Prize</th> <th>Market</th> </tr> </thead>
-                          <tbody> <tr id="tableRow0"> <td class="editable article">Type here for new Article</td> <td class="editable amount" >1</td> <td class="prize">Prize</td> <td class="market">Market</td> </tr> </tbody>
+                          <tbody> 
+                          <?php if(!isset($_GET["listID"])) : ?>
+                            <tr id="tableRow0"> 
+                              <td class="editable article">Type here for new Article</td> 
+                              <td class="editable amount" >1</td> 
+                              <td class="prize">Prize</td> 
+                              <td class="market">Market</td> 
+                            </tr>
+                          <?php endif; ?> 
+                          <?php 
+                            if(isset($_GET["listID"])) {
+                              include 'ajax/loadTable.php';
+                              load();
+                            } 
+                          ?>
+                          </tbody>
                         </table>
                         <div class="btn-group btn-group-justified">
                           <div class="btn-group">

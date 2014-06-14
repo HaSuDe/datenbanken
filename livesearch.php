@@ -16,9 +16,9 @@ if (strlen($q)>0) {
       //find a link matching the search text
       if (stristr($y->item(0)->childNodes->item(0)->nodeValue,$q)) {
         if($hint == "") {
-        $hint=$y->item(0)->childNodes->item(0)->nodeValue;
+        $hint="<li>". $y->item(0)->childNodes->item(0)->nodeValue . "</li>";
         } else {
-          $hint=$hint. "<br/>" . $y->item(0)->childNodes->item(0)->nodeValue;
+          $hint=$hint. "<li>" . $y->item(0)->childNodes->item(0)->nodeValue . "</li>";
         }
       }
     }

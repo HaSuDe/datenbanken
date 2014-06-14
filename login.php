@@ -3,11 +3,7 @@ session_start();
 ?> 
 
 <?php
-require_once 'php/config.php';
-
-$verbindung = mysql_connect("195.37.176.178:11336", "mileycyrus" , "mileycyrus")  
-or die("Verbindung zur Datenbank konnte nicht hergestellt werden"); 
-mysql_select_db("mileycyrus") or die ("Datenbank konnte nicht ausgewählt werden"); 
+require_once 'php/config.php'; 
 
 $username = $_POST["username"]; 
 $password = md5($_POST["password"]); 
