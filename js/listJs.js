@@ -1,6 +1,7 @@
 $(document).ready(function() {
 		console.log("Site loaded");
 		var rowNmbr = 0;
+		var originalContent;
 
 		var list = document.getElementById('list');
 		// save and clear List
@@ -30,7 +31,8 @@ $(document).ready(function() {
 				$(event.target).unbind('keyup');
 				$('#livesearch li').unbind('click');
 
-				var originalContent = $(event.target).text(); 
+				if($(event.target).text() != "")
+					originalContent = $(event.target).text(); 
 				console.log(originalContent);
 
 				// Text löschen
@@ -116,7 +118,8 @@ $(document).ready(function() {
 						var articleName = $(e.target).text();
 						var tmpRow = $(e.target).parent().attr('id');
 							tmpRow = tmpRow.match(/\d+/);
-						getPrize(tmpRow, articleName, rowNmbr, true);
+							rowNmbr = $('#myTable tbody').children('tr').length;
+						getPrize(tmpRow, articleName, rowNmbr, true);						
 					}
 
 		    		// remove warningBox if there
@@ -168,9 +171,8 @@ function getPrize(row, articleN, rowNmbr, clicked){
 		// add new Row
 		// just add new Row when there is no unfilled Row
 		console.log("tmpRow: " + row + "rowNmbr: " + rowNmbr);
-		if (row == rowNmbr) {
-			rowNmbr++;
-			$('#myTable > tbody:first').append('<tr id="tableRow' + row + '"> <td class="editable article">Article</td> <td class="editable amount" >1</td>' + 
+		if (row+1 >= rowNmbr) {
+			$('#myTable > tbody:first').append('<tr id="tableRow' + row+1 + '"> <td class="editable article">Article</td> <td class="editable amount" >1</td>' + 
 									   '<td class="prize">Prize</td> <td class="market">Market</td> </tr> </tbody>');
 		}									
 	}, 'json')
