@@ -47,7 +47,7 @@ and open the template in the editor.
                         <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo "".$_SESSION["username"]."" ?><b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                          <li class="active"><a href="./home.html">Home</a></li>
+                          <li class="active"><a href="./home.php">Home</a></li>
                           <li><a href="./userLists.php">My Lists</a></li>
                           <li class=><a href="./createArticle.php">Create Article</a></li>
                           <li class=><a href="./createSupermarket.php">Create Supermarket</a></li>
@@ -97,7 +97,7 @@ and open the template in the editor.
                             <button id="clearList" type="button" class="btn btn-default">Clear List</button>
                           </div>
                           <div class="btn-group">
-                            <button type="button" class="btn btn-primary">Shopping View</button>
+                            <button id="shoppingView" type="button" class="btn btn-primary">Shopping View</button>
                           </div>
                         </div>
                     </div>
@@ -116,5 +116,6 @@ and open the template in the editor.
         <script src="js/alertify.js"></script>
         <!-- login -->
         <script src="./js/login.js"></script>
+        <script src="./js/shoppingView.js"></script>
     </body>
 </html>
