@@ -4,6 +4,7 @@ $(document).ready(function() {
 		var originalContent;
 
 		var list = document.getElementById('list');
+
 		// save and clear List
 		$("#saveList").on('click', function(e) {
 			e.preventDefault();
@@ -23,6 +24,7 @@ $(document).ready(function() {
 		// --------------------------- On click	----------------------------//	
 		$(document).on('click', function(e) {
 
+			/* ------------- Click on an editable table cell (article or amount) */
 			if($(event.target).hasClass('editable')) {
 
 				// vorherige Listener removen
@@ -31,15 +33,14 @@ $(document).ready(function() {
 				$(event.target).unbind('keyup');
 				$('#livesearch li').unbind('click');
 
+				// nur wenn Text nicht leer ist origContent speichern
 				if($(event.target).text() != "")
 					originalContent = $(event.target).text(); 
 				console.log(originalContent);
 
 				// Text löschen
 				$(event.target).text("");
-
 				$(event.target).attr('contentEditable', 'true');
-
 				$(event.target).focus();
 
 				// Wenn nach dem Focus ein Key gepressed wird
@@ -164,7 +165,8 @@ function getPrize(row, articleN, rowNmbr, oriContent, clicked, e){
 			$('#myTable td.market:eq(' + row +') select').on('change', function(e) {
 				// get index 2 display right prize
 				var sqlRowIndex = $(e.target).find('option:selected').index();
-				$('#myTable td.prize:eq(' + row +')').text(data[sqlRowIndex].prize);
+				console.log('#myTable td.prize:eq(' + row +')');
+				$('#myTable td.prize:eq(' + (row-1) +')').text(data[sqlRowIndex].prize);
 			})
 		} else
 			$('#myTable td.market:eq(' + row +')').text(data[0].market);
