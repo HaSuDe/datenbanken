@@ -14,7 +14,7 @@ $(document).ready(function() {
 		$("#clearList").on('click', function(e) {
 			e.preventDefault();
 			localStorage.clear();
-			location.reload();
+			window.location.replace('home.php');
 		});
 
 		// Load prizes and look how many rows are there
