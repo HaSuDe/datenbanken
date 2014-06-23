@@ -116,10 +116,11 @@ $(document).ready(function() {
 					// else try to set the new text and fill in the best prize and the market
 		    		} else {
 						var articleName = $(e.target).text();
-						var tmpRow = $(e.target).parent().attr('id');
-							tmpRow = tmpRow.match(/\d+/);
+						var tmpRow = $(e.target).parent().index();
+						console.log(tmpRow);
+							//tmpRow = tmpRow.match(/\d+/);
 							rowNmbr = $('#myTable tbody').children('tr').length;
-						getPrize(tmpRow, articleName, rowNmbr, true);						
+						getPrize(tmpRow, articleName, rowNmbr, true, e);						
 					}
 
 		    		// remove warningBox if there
@@ -145,7 +146,7 @@ $(document).ready(function() {
 		loadToDo();
 });
 
-function getPrize(row, articleN, rowNmbr, clicked){
+function getPrize(row, articleN, rowNmbr, oriContent, clicked, e){
 	console.log("getting Prize");
 	// Change Prize and Market for Row
 	console.log(articleN);
@@ -170,9 +171,10 @@ function getPrize(row, articleN, rowNmbr, clicked){
 
 		// add new Row
 		// just add new Row when there is no unfilled Row
+		row = row+1;
 		console.log("tmpRow: " + row + "rowNmbr: " + rowNmbr);
-		if (row+1 >= rowNmbr) {
-			$('#myTable > tbody:first').append('<tr id="tableRow' + row+1 + '"> <td class="editable article">Article</td> <td class="editable amount" >1</td>' + 
+		if (row >= rowNmbr) {
+			$('#myTable > tbody:first').append('<tr id="tableRow' + row + '"> <td class="editable article">Article</td> <td class="editable amount" >1</td>' + 
 									   '<td class="prize">Prize</td> <td class="market">Market</td> </tr> </tbody>');
 		}									
 	}, 'json')
@@ -180,7 +182,7 @@ function getPrize(row, articleN, rowNmbr, clicked){
 	.fail(function(data) {
 		alertify.error("Oops Something went wrong please try again! Maybe its just a typing mistake :)");
 		if(clicked)
-			$(e.target).text(originalContent);
+			$(e.target).text(oriContent);
 		console.log("Something went wrong in getBestPrize.php. Maybe no entry found? Or just not connected in time.");
 		console.log(data);
 	})
@@ -194,7 +196,7 @@ function loadPrizes(){
 		var row = tbody.children('tr')[i];
 		if($(row).find('.article').text() != "Type here for new Article" && $(row).find('.prize').text() == "Prize") {
 			var article = $(row).find('.article').text();
-			getPrize(i, article, tbody.children('tr').length - 1, false);
+			getPrize(i, article, tbody.children('tr').length, false, null);
 		}
 	}
 	
