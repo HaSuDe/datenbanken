@@ -5,6 +5,9 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
+    <?php 
+      session_start(); 
+    ?> 
     <head>
         <title>Shopping App</title>
         <meta charset="UTF-8">
@@ -32,17 +35,14 @@ and open the template in the editor.
                   </div>
 
                   <!-- Collect the nav links, forms, and other content for toggling -->
-                  <?php if(isset($_SESSION["error"])) : ?>
-                    <div class="alert alert-danger"><?php echo "".$_SESSION["error"]."" ?></div>
-                  <?php endif; ?> 
                   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">	
                     <div class="nav navbar-nav navbar-right">
-                        <form class="navbar-form navbar-left" action="./login.php" method="post">
+                        <form id="loginForm" class="navbar-form navbar-left" action="" method="post">
                               <div class="form-group">
-                                <input type="text" name="username" class="form-control" placeholder="Benutzername">
-                                <input type="password" name="password" class="form-control" placeholder="Passwort">
+                                <input type="text" id="username" class="form-control" placeholder="Benutzername">
+                                <input type="password" id="password" class="form-control" placeholder="Passwort">
                               </div>
-                              <button id="loginBtn" type="submit" class="btn btn-default">Login</button>
+                              <button id="loginBtn" type="button" class="btn btn-default">Login</button>
                         </form>
                         <ul class="nav navbar-nav">
                             <li class="register"><a href="./register.html">No Login yet? Register now!</a></li>

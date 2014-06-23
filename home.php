@@ -11,7 +11,8 @@ and open the template in the editor.
 
     <?php 
       if(!isset($_SESSION["username"])) {
-        header('location: index.html');
+        $_SESSION["error"] = "Bitte loggen Sie sich zunächst ein.";
+        header('location: index.php');
       }
     ?> 
     <head>

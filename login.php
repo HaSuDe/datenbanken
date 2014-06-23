@@ -21,12 +21,12 @@ function login($username, $password) {
     if($row->password == $password) 
         { 
         $_SESSION["username"] = $username; 
-        header('location: home.php'); 
-        } 
-    else 
+        $json = json_encode(array("Ok"));
+        echo $json;
+    } else 
         { 
-        echo "Benutzername und/oder Passwort waren falsch. <a href=\"index.html\">Login</a>";
-        } 
+        echo "error";
+    }
 
 }
 ?>
