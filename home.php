@@ -46,7 +46,7 @@ and open the template in the editor.
                     <div class="nav navbar-nav navbar-right">
                         <ul class="nav navbar-nav">
                         <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo "".$_SESSION["username"]."" ?><b class="caret"></b></a>
+                        <a id="userName" href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo "".$_SESSION["username"]."" ?><b class="caret"></b></a>
                         <ul class="dropdown-menu">
                           <li class="active"><a href="./home.php">Home</a></li>
                           <li><a href="./userLists.php">My Lists</a></li>
@@ -106,6 +106,33 @@ and open the template in the editor.
                 </section>
             </section>
               <!-- main content end -->
+              
+              <!-- Modal type Shoppinglist Name-->
+                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="listNameModal" class="modal fade">
+                  <div class="modal-dialog">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                              <h4 class="modal-title">Enter Shoppinglist name</h4>
+                          </div>
+                          <div class="modal-body">
+                            <form action="/changeEventData" method="post">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                      <p>Enter Name</p>
+                                      <input type="text" name="listName" id="listName" placeholder="List name" autocomplete="off" class="modal-form-control placeholder-no-fix">
+                                    </div>
+                                </div>
+                            </form>
+                          </div>
+                          <div class="modal-footer">
+                              <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+                              <button class="btn btn-success" id="shoppingListNameSubmit" type="submit">Save</button>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+               <!-- modal type Shoppinglist Name-->
           </section>
 
        	<!-- JQuery -->

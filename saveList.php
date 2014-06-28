@@ -2,8 +2,8 @@
     require_once 'php/config.php';
     
     $ldata = $_POST['ldata'];
-    
-    $listName = "Meine zweite Liste";
+    $listName = $_POST['lname'];
+    $userName = $_POST["uname"];
     
     // Create new List
     $queryCreateList = "INSERT INTO ShoppingLists(name) VALUES ('$listName')";
@@ -16,7 +16,10 @@
     $listID = $row->listID;
     
     //Get User ID
-    $userId = 23;
+    $querUserId = "SELECT userID FROM Users u WHERE u.name LIKE '$userName'";
+    $resultUserId = mysql_query($querUserId);
+    $rowId = mysql_fetch_object($resultUserId);
+    $userId = $rowId->userID;
     
     // Add List to User
     $queryAddUser = "INSERT INTO UserListManagement VALUES($userId, $listID)";

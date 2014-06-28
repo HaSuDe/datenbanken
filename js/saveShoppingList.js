@@ -1,53 +1,92 @@
 $(document).ready(function() {
 
     $('#saveList').on('click', function(event) {
-    	console.log("Submit called");
-
-    	event.preventDefault();
-		//localStorage.setItem('todoList', list.innerHTML);
-		alertify.success("You have saved your list.");
-
-    	var listData = new Array();
-
-    	var tableRows = $('#myTableBody tr');
         
-        var iter = 0;
-
-        $.each( tableRows, function( key, value ) {
-            var rowData = new Array();
-
-            console.log(key);
-            console.log(value);
+        var tableRows = $('#myTableBody tr');
+       
+        if(($('#myTableBody tr').size() > 1)){
+            var filledWrong = false;
+            $.each( tableRows, function( key, value ) {
+                if($(value).find('.market').text() === "Market"){
+                    if(!($(value).find('.article').text() === "Article")){
+                        filledWrong = true;
+                    }
+                }
+            });
             
-                            console.log("Size ist: " + tableRows.size());
-                console.log("Iter ist: " + iter);
-            
-            
-            if(iter <= (tableRows.size()-2)){
-
-                rowData.push($(value).find('.article').text());
-                rowData.push($(value).find('.amount').text());
-                rowData.push($(value).find('.prize').text());
-                rowData.push($(value).find('.market').text());
-
-
-
-            listData.push(rowData);
+            if(!filledWrong){
+                $('#shoppingListNameSubmit').unbind();
+                var modal = $("#listNameModal");
+                modal.modal(); 
+            }else{
+                alertify.success("Please correct the Mistakes in your List");
             }
 
-            console.log(listData);
-            iter++;
-        });
+        }else{
+            alertify.success("A List must have at least one Article");
+        }
 
 
-        $.post( 'saveList.php', {ldata : listData}, function(data) {
-            // if post was successful
-            console.log(data);
-            }, 'json') // I expect a JSON response
-        .fail(function (data) {
-            // if post had an error
-            console.log('Failed to save other Fields in DB' +data);
+
+        
+        // After Name was typed Submit List to Database
+        $('#shoppingListNameSubmit').on('click', function(event){
+            
+            event.preventDefault();
+            console.log("Submit called");
+
+            var listData = new Array();
+            
+            var listName = $('#listName').val();
+            
+            var userName = $('#userName').text();
+
+            var iter = 0;
+
+            // For every Tablerow
+            $.each( tableRows, function( key, value ) {
+                var rowData = new Array();
+
+                // Data of Tablerow
+                if(iter <= (tableRows.size()-2)){
+
+                    rowData.push($(value).find('.article').text());
+                    rowData.push($(value).find('.amount').text());
+                    rowData.push($(value).find('.prize').text());
+                    rowData.push($(value).find('.market').text());
+
+                    listData.push(rowData);
+                }
+
+                console.log(listData);
+                iter++;
+            });
+
+            $.post( 'saveList.php', {ldata : listData, lname : listName, uname : userName}, function(data) {
+                // if post was successful
+                console.log(data);
+                alertify.success("You have successfully saved your list.");
+                }, 'json') // I expect a JSON response
+            .fail(function (data) {
+                // if post had an error
+                console.log('Failed to save other Fields in DB' +data);
+                alertify.success("Something went Wrong :(, please try again");
+            });
         });
+    	
+    });
+    
+    
+     // -------------------------- Create Modal ------------------//
+    // Wenn modal versteckt wurde
+    $('#listNameModal').on('hidden.bs.modal', function () {
+        // Felder wieder leeren
+        $('#listName').val("");
+    });
+    
+    // Wenn Modal geshowed wurde
+    $('#listNameModal').on('shown.bs.modal', function () {
+        // Vielleicht alten Namen reinladen
     });
 
 });

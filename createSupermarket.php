@@ -6,9 +6,10 @@
 
     <?php 
       if(!isset($_SESSION["username"])) {
-        header('location: index.html');
+        $_SESSION["error"] = "Bitte loggen Sie sich zunächst ein.";
+        header('location: index.php');
       }
-    ?>
+    ?> 
     
     <head>
         <title>Create Supermarket</title>
