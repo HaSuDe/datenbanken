@@ -73,7 +73,7 @@ and open the template in the editor.
                     </div>
                         <table id="myTable" class="table">
                           <thead> <tr> <th>Article</th> <th>Amount</th> <th>Prize</th> <th>Market</th> </tr> </thead>
-                          <tbody> 
+                          <tbody id="myTableBody"> 
                           <?php if(!isset($_GET["listID"])) : ?>
                             <tr id="tableRow0"> 
                               <td class="editable article">Type here for new Article</td> 
@@ -118,5 +118,6 @@ and open the template in the editor.
         <!-- login -->
         <script src="./js/login.js"></script>
         <script src="./js/shoppingView.js"></script>
+        <script src="./js/saveShoppingList.js"></script>
     </body>
 </html>

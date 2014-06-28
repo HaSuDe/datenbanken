@@ -5,12 +5,13 @@ $(document).ready(function() {
 
 		var list = document.getElementById('list');
 
-		// save and clear List
+/*		// save and clear List
 		$("#saveList").on('click', function(e) {
 			e.preventDefault();
 			//localStorage.setItem('todoList', list.innerHTML);
 			alertify.success("You have saved your list.");
 		});
+ */
 		$("#clearList").on('click', function(e) {
 			e.preventDefault();
 			localStorage.clear();
