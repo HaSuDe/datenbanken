@@ -19,11 +19,11 @@ $(document).ready(function() {
                 var modal = $("#listNameModal");
                 modal.modal(); 
             }else{
-                alertify.success("Please correct the Mistakes in your List");
+                alertify.error("Please correct the Mistakes in your List");
             }
 
         }else{
-            alertify.success("A List must have at least one Article");
+            alertify.error("A List must have at least one Article");
         }
 
 
@@ -70,7 +70,7 @@ $(document).ready(function() {
             .fail(function (data) {
                 // if post had an error
                 console.log('Failed to save other Fields in DB' +data);
-                alertify.success("Something went Wrong :(, please try again");
+                alertify.error("Something went Wrong :(, please try again");
             });
         });
     	

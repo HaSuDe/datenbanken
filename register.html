@@ -17,20 +17,28 @@ and open the template in the editor.
             <section id="main-content">
                 <section id="wrapper">
                     <div class="login-div">
-                        <form class="form-reg" action="./register.php" method="post">
+                        <form class="form-reg">
                             <h2 class="form-reg-header">Register now</h2>
-                            <input type="text" name="username" class="form-input" placeholder="Username" maxlength="50">
-                            <input type="email" name="email" class="form-input" placeholder="Email Adresse">
-                            <input type="password" name="password" class="form-input" placeholder="Password" maxlength="50">
-                            <input type="password" name="password2" class="form-input" placeholder="Verify Password" maxlength="50">
+                            <input type="text" id="username" class="form-input" placeholder="Username" maxlength="50">
+                            <input type="email" id="email" class="form-input" placeholder="Email Adresse">
+                            <input type="password" id="password" class="form-input" placeholder="Password" maxlength="50">
+                            <input type="password" id="password2" class="form-input" placeholder="Verify Password" maxlength="50">
                             <!--
+                            <a href="register.php"></a>
                             <input type="text" name="surname" class="form-input" placeholder="Surname">
                             <input type="text" name="name" class="form-input" placeholder="Name"> -->
-                            <button class="btn btn-login" type="submit">Submit</button>
+                            <button class="btn btn-login" id="registerSubmit" type="button">Submit</button>
                         </form>
                     </div>
                 </section>
             </section>
         </section>
+        
+        
+    <!-- JQuery -->
+    <script src="./js/jquery.js"></script>  
+    <!-- Register -->
+    <script src="./js/register.js"></script>
+    
     </body>
 </html>

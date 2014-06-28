@@ -1,40 +1,39 @@
 <?php
-require_once 'php/config.php';
-include_once 'login.php';
+    require_once 'php/config.php';
+//    include_once 'login.php';
 
-$username = $_POST["username"]; 
-$password = $_POST["password"]; 
-$password2 = $_POST["password2"]; 
+    $username = $_POST["uname"]; 
+    $password = $_POST["upass1"]; 
+    $password2 = $_POST["upass2"]; 
+    $email = $_POST["uemail"];
 
-if($password != $password2 OR $username == "" OR $password == "") 
-    { 
-    echo "Eingabefehler. Bitte alle Felder korekt ausfüllen. <a href=\"eintragen.html\">Zurück</a>"; 
-    exit; 
+    if($password != $password2 OR $username == "" OR $password == ""){ 
+        $result = array(1=>"wrong input");
     } 
-$password = md5($password); 
+    
+    $password = md5($password); 
 
-$result = mysql_query("SELECT userId FROM Users WHERE name LIKE '$username'"); 
-$menge = mysql_num_rows($result); 
+    $result = mysql_query("SELECT userId FROM Users WHERE name LIKE '$username'"); 
+    $menge = mysql_num_rows($result); 
 
-if($menge == 0) 
-    { 
-    $eintrag = "INSERT INTO Users (name, password) VALUES ('$username', '$password')"; 
-    $eintragen = mysql_query($eintrag); 
+    if($menge == 0){ 
+            $eintrag = "INSERT INTO Users (email, name, password) VALUES ('$email', '$username', '$password')"; 
+            $eintragen = mysql_query($eintrag); 
 
-    if($eintragen == true) { 
-        login($username, $password);
-        //echo "Benutzername <b>$username</b> wurde erstellt. <a href=\"home.html\">Login</a>"; 
-    } else 
-        { 
-        echo "Fehler beim Speichern des Benutzernames. <a href=\"register.html\">Zurück</a>"; 
+        if($eintragen == true) { 
+            $result = array(1=>"success");
+            //login($username, $password);
+        } else { 
+            $result = array(1=>"fail create");
         } 
 
 
+    }else{ 
+        $result = array(1=>"fail taken");
     } 
-
-else 
-    { 
-    echo "Benutzername schon vorhanden. <a href=\"register.html\">Zurück</a>"; 
-    } 
-?>
+    
+    $json = json_encode($result);
+    echo $json;
+    exit();
+     
 ?>
