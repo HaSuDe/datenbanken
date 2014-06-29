@@ -92,6 +92,8 @@ Author Julian Suttner, Niklas Hatje, Cedric Deege
        	<script src="./js/jquery.js"></script>
        	<!-- Bootstrap -->
         <script src="./bs/js/bootstrap.min.js"></script> 
+        <!-- Load availabe Articles(XML)-->
+        <script src="./js/loadArticleXML.js"></script>
         <!-- EditableTalbe -->
         <script src="./js/listJs.js"></script>
         <script src="js/alertify.js"></script>

@@ -1,14 +1,27 @@
+<?xml version="1.0"?>
 <pages>
-	<article>
-		<title>Orange</title>
-	</article>
-	<article>
-		<title>Kakao</title>
-		</article>
-	<article>
-		<title>Milch</title>
-	</article>
-	<article>
-		<title>Toast</title>
-	</article>
+  <article>
+    <title>Orange</title>
+  </article>
+  <article>
+    <title>Kakao</title>
+  </article>
+  <article>
+    <title>Milch</title>
+  </article>
+  <article>
+    <title>Toast</title>
+  </article>
+  <article>
+    <title>Bier</title>
+  </article>
+  <article>
+    <title>Schokom&#xFC;sli</title>
+  </article>
+  <article>
+    <title>Pizza Salami Jalpeno</title>
+  </article>
+  <article>
+    <title>Cola</title>
+  </article>
 </pages>
