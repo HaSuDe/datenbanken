@@ -13,8 +13,8 @@
     
     $password = md5($password); 
 
-    $result = mysql_query("SELECT userId FROM Users WHERE name LIKE '$username'"); 
-    $menge = mysql_num_rows($result); 
+    $userID = mysql_query("SELECT userId FROM Users WHERE name LIKE '$username'"); 
+    $menge = mysql_num_rows($userID); 
 
     if($menge == 0){ 
             $eintrag = "INSERT INTO Users (email, name, password) VALUES ('$email', '$username', '$password')"; 
@@ -26,8 +26,6 @@
         } else { 
             $result = array(1=>"fail create");
         } 
-
-
     }else{ 
         $result = array(1=>"fail taken");
     } 

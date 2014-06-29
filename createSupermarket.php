@@ -17,6 +17,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="./bs/css/bootstrap.min.css" rel="stylesheet">
         <link href="./css/editableTable.css" rel="stylesheet">
+        <link href="./css/alertify.core.css" rel="stylesheet">
+        <link href="./css/alertify.bootstrap.css" rel="stylesheet">
         <link href="./css/style.css" rel="stylesheet">
         <link href="./css/addSupermarket.css" rel="stylesheet">
         <!-- Google web fonts -->
@@ -35,7 +37,7 @@
                       <span class="icon-bar"></span>
                       <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Cool Logo Here</a>
+                    <a class="navbar-brand" href="#"><</a>
                   </div>
 
                   <!-- Collect the nav links, forms, and other content for toggling -->
@@ -78,40 +80,40 @@
 
                         
                       <div class="col-md-12">
-                            <form class="form-reg" action="./addSupermarket.php" method="post">
+                            <form class="form-reg"">
                               <div class="form-group">
                                 <!-- Supermarket Name -->
                                 <label>Name</label>
-                                <input type="text" class="form-control" name="supermarketName" placeholder="Enter Market Name">  
+                                <input type="text" class="form-control" id="supermarketName" placeholder="Enter Market Name">  
                               </div>
                               <div class="form-group">
                                 <!-- Supermarket Street -->
                                 <label>Street</label>
-                                <input type="text" class="form-control" name="supermarketStreet" placeholder="Enter Street of Supermarket">  
+                                <input type="text" class="form-control" id="supermarketStreet" placeholder="Enter Street of Supermarket">  
                               </div>
                               <div class="form-group">
                                 <!-- Supermarket City -->
                                 <label>City</label>
-                                <input type="text" class="form-control" name="supermarketCity"placeholder="Enter City of Supermarket">  
+                                <input type="text" class="form-control" id="supermarketCity" placeholder="Enter City of Supermarket">  
                               </div>
                               <div class="form-group">
                                 <!-- Supermarket ZipCode -->
                                 <label>Zip Code</label>
-                                <input type="text" class="form-control" name="supermarketZipCode"placeholder="Enter Zip Code of Supermarket">  
+                                <input type="text" class="form-control" id="supermarketZipCode" placeholder="Enter Zip Code of Supermarket">  
                               </div>
                               <div class="form-group">
                                 <!-- Supermarket ZipCode -->
                                 <label>Country</label>
-                                <input type="text" class="form-control" name="supermarketCountry"placeholder="Enter Country of Supermarket">  
+                                <input type="text" class="form-control" id="supermarketCountry" placeholder="Enter Country of Supermarket">  
                               </div>
                               <div class="form-group">
                                 <!-- Supermarket ZipCode -->
                                 <label>Position</label>
-                                <input type="text" class="form-control" name="supermarketLatitude"placeholder="Enter Latitude of Supermarket">  
-                                <input type="text" class="form-control" name="supermarketLongitude"placeholder="Enter Longitude of Supermarket">  
+                                <input type="text" class="form-control" id="supermarketLatitude" placeholder="Enter Latitude of Supermarket">  
+                                <input type="text" class="form-control" id="supermarketLongitude" placeholder="Enter Longitude of Supermarket">  
                               </div>
                               <div class="form-group addButton">
-                                <button type="submit" class="btn btn-default">Create Supermarket</button>
+                                <button id="createSupermarket" type="button" class="btn btn-default">Create Supermarket</button>
                               </div>
                             </form>
                       </div>
@@ -124,7 +126,10 @@
 
         <!-- JQuery -->
         <script src="./js/jquery.js"></script>
+        <!-- Alertify -->
+        <script src="js/alertify.js"></script>
         <!-- Bootstrap -->
         <script src="./bs/js/bootstrap.min.js"></script> 
+        <script src="./js/addSupermarket.js"></script> 
     </body>
 </html>

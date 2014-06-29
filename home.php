@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
+Author Julian Suttner, Niklas Hatje, Cedric Deege
 -->
 <html>
     <?php 
@@ -38,7 +36,7 @@ and open the template in the editor.
                       <span class="icon-bar"></span>
                       <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="./home.php">Cool Logo Here</a>
+                      <a class="navbar-brand" href="./home.php"></a>
                   </div>
 
                   <!-- Collect the nav links, forms, and other content for toggling -->

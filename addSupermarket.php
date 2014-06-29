@@ -8,7 +8,6 @@ $supermarketZipCode = $_POST["supermarketZipCode"];
 $supermarketCountry = $_POST["supermarketCountry"];
 $supermarketLongitude = $_POST["supermarketLongitude"];
 $supermarketLatitude = $_POST["supermarketLatitude"];
-$supermarketLongitude = $_POST["supermarketLongitude"];
 
 /*Validation if Supermarket already exists*/
 $query1 = "SELECT name FROM Supermarkets s WHERE s.name LIKE '$supermarketName' LIMIT 1";
@@ -28,10 +27,16 @@ if($size1 == 0 && $size2 == 0){
 	$result3 = mysql_query($query3); 
 
 	if($result3 == true){ 
-	    header('location: home.php');
+	    $result = array(1=>"success");
 	}else{ 
-	    header('location: index.html');
+	    $result = array(1=>"fail");
 	}
+}else{
+    $result = array(1=>"already");
 } 
+
+    $json = json_encode($result);
+    echo $json;
+    exit();
 
 ?>
