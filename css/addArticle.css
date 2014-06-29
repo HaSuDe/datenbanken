@@ -27,3 +27,15 @@
 .addButton{
 	padding-bottom: 10px;
 }
+
+.errField{
+    border-radius: 4px;
+    background: #E08283;
+    font-size: 20;
+}
+
+.successField{
+    border-radius: 4px;
+    background: #C8F7C5;
+    font-size: 20;
+}

@@ -35,7 +35,7 @@
                       <span class="icon-bar"></span>
                       <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#"></a>
+                    <a class="navbar-brand" href="#">Logo</a>
                   </div>
                   <!-- Collect the nav links, forms, and other content for toggling -->
                   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">  
@@ -62,6 +62,7 @@
             <!-- Navbar end -->
             <!--main content start-->
             <section id="main-content">
+                
                 <section class="wrapper">
                     <div class="panel panel-default createPanel">
                         <div class="row">
@@ -77,7 +78,7 @@
                                     <div class="form-group">
                                         <!-- Article Name -->
                                         <label>Name</label>
-                                        <input type="text" class="form-control" name="articleName" placeholder="Enter Article Name">  
+                                        <input type="text" class="form-control" name="articleName" placeholder="">  
                                     </div>
                                     <div class="form-group">
                                         <!-- Article Brand -->
@@ -92,7 +93,7 @@
                                     <div class="form-group">
                                         <label for="supermarket">Amount</label>
                                         <div class="input-group">
-                                          <input type="text" name="articleAmount" class="form-control">
+                                            <input type="text" placeholder="Enter Amount" name="articleAmount" class="form-control">
                                             <div class="input-group-btn">
                                                 <select name="articleAmountUnit" class="form-control optionMenu">
                                                     <option value="default">--Unit--</option>
@@ -117,6 +118,22 @@
                                     </div>                                 
                                     <div class="form-group addButton"> 
                                       <button type="submit" class="btn btn-default">Add Article</button>
+                                    </div>
+                                    <div class="errField">
+                                        <?php 
+                                            if(isset($_SESSION["status"]) && $_SESSION["status"] != 'Article successfully created') {
+                                                echo "".$_SESSION["status"]."";
+                                                $_SESSION["status"] = '';
+                                            }
+                                        ?>
+                                    </div>
+                                    <div class="successField">
+                                        <?php 
+                                            if(isset($_SESSION["status"]) && $_SESSION["status"] == 'Article successfully created'){
+                                                echo "".$_SESSION["status"]."";
+                                                $_SESSION["status"] = '';
+                                            }
+                                        ?>
                                     </div>
                                 </div>
                                 <div class="col-md-3">

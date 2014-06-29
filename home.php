@@ -36,7 +36,7 @@ Author Julian Suttner, Niklas Hatje, Cedric Deege
                       <span class="icon-bar"></span>
                       <span class="icon-bar"></span>
                     </button>
-                      <a class="navbar-brand" href="./home.php"></a>
+                      <a class="navbar-brand" href="./home.php">Logo</a>
                   </div>
 
                   <!-- Collect the nav links, forms, and other content for toggling -->
