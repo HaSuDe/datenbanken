@@ -7,19 +7,50 @@ $(document).ready(function() {
             var classes = $(a).attr('class').split(' ');
             var id = classes[1];
             
-            
-            $.get( "php/getArticleInformation.php", function(data) {
+            $.post( "php/getArticleInformation.php",{articleID : id}, function(data) {
+                
+                console.log(data);
+                
 		// Continue with Article Information
-                var articleID = data.id;
-                var articleName = data.name;
-                var articleImage = data.image;
+                var articleID = data[0].id;
+                $('#articleName').val(data[0].name);
+                var articleImage = data[0].image;
+                $('#articleImage').attr("src", './uploads/' + articleImage);
                 
-               
+                $('#articleBrand').val(data[1][0].brand);
+                $('#articleSupermarket').val(data[1][0].marketName);
+                $('#articlePrize').val(data[1][0].prize);
+                $('#articleSize').val(data[1][0].size);
+                $('#articleUnit').val(data[1][0].unit);
                 
+                
+                $('#articleSubmitButton').unbind();
+                $('#addMarket').unbind();
+                $('#cancelAddMarket').unbind();
+                var modal = $("#articleModal");
+                modal.modal(); 
+                
+                $('#addMarket').on('click', function(event){
+                    $('#showArticle').addClass('hidden');
+                    $('#editArticle').removeClass('hidden');
+                    $('#cancelAddMarket').removeClass('hidden');
+                    $('#addMarket').addClass('hidden');
+                    
+                    //Fill Fields
+                    $('#editArticleName').val(data[0].name);
+                    
+                });
+                
+                $('#cancelAddMarket').on('click', function(event){
+                    $('#showArticle').removeClass('hidden');
+                    $('#editArticle').addClass('hidden');
+                    $('#cancelAddMarket').addClass('hidden');
+                    $('#addMarket').removeClass('hidden');
+                });
             }, 'json')
             .fail(function(data) {
-                    alertify.error("Oops Something went wrong please reload the page!");
-                    console.log(data);
+                console.log(data);
+                alertify.error("Oops Something went wrong please reload the page!");
             });
         }
     });

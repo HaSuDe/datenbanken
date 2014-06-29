@@ -15,7 +15,7 @@ $(document).ready(function() {
             });
             
             if(!filledWrong){
-                $('#shoppingListNameSubmit').unbind();
+                $('#articleSubmitButton').unbind();
                 var modal = $("#listNameModal");
                 modal.modal(); 
             }else{

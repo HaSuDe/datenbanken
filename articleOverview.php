@@ -78,19 +78,50 @@
                   <div class="modal-content">
                       <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                          <h4 class="modal-title">Enter Shoppinglist name</h4>
+                          <h4 class="modal-title">Article Overview</h4>
                       </div>
                       <div class="modal-body">
                         <form action="/changeEventData" method="post">
-                            <div class="row">
-                                <div class="col-md-12">
-                                  <p>Article Name</p>
+                            <div id="showArticle" class="row">
+                                <div class="col-md-6">
+                                  <p>Name</p>
                                   <input type="text" name="listName" id="articleName" placeholder="Name" autocomplete="off" class="modal-form-control placeholder-no-fix">
-                                  <p>Article Brand</p>
+                                  <p>Brand</p>
                                   <input type="text" name="listName" id="articleBrand" placeholder="Brand" autocomplete="off" class="modal-form-control placeholder-no-fix">
-                                  <p>Article Supermarket</p>
+                                  <p>Supermarket</p>
                                   <input type="text" name="listName" id="articleSupermarket" placeholder="Supermarket" autocomplete="off" class="modal-form-control placeholder-no-fix">
+                                  <p>Prize in Euro</p>
+                                  <input type="text" name="listName" id="articlePrize" placeholder="Supermarket" autocomplete="off" class="modal-form-control placeholder-no-fix">
+                                  <p>Amount</p>
+                                  <input type="text" name="listName" id="articleSize" placeholder="Supermarket" autocomplete="off" class="modal-form-control placeholder-no-fix">
+                                  <p>Unit</p>
+                                  <input type="text" name="listName" id="articleUnit" placeholder="Supermarket" autocomplete="off" class="modal-form-control placeholder-no-fix">
                                 </div>
+                                <div class="col-md-6">
+                                    <img id="articleImage" src="uploads/article/noImage.jpg" style="width: 200px; height: 200px; margin-top:10px; " alt="Article Image">
+                                </div>
+                            </div>
+                            
+                            <div id="editArticle" class="row hidden">
+                                <div class="col-md-6">
+                                  <p>Name</p>
+                                  <input type="text" name="listName" id="editArticleName" placeholder="Name" autocomplete="off" class="modal-form-control placeholder-no-fix">
+                                  <p>Brand</p>
+                                  <input type="text" name="listName" id="editArticleBrand" placeholder="Brand" autocomplete="off" class="modal-form-control placeholder-no-fix">
+                                  <p>Supermarket</p>
+                                  <input type="text" name="listName" id="editArticleSupermarket" placeholder="Supermarket" autocomplete="off" class="modal-form-control placeholder-no-fix">
+                                  <p>Prize in Euro</p>
+                                  <input type="text" name="listName" id="editArticlePrize" placeholder="Supermarket" autocomplete="off" class="modal-form-control placeholder-no-fix">
+                                  <p>Amount</p>
+                                  <input type="text" name="listName" id="editArticleSize" placeholder="Supermarket" autocomplete="off" class="modal-form-control placeholder-no-fix">
+                                  <p>Unit</p>
+                                  <input type="text" name="listName" id="editArticleUnit" placeholder="Supermarket" autocomplete="off" class="modal-form-control placeholder-no-fix">
+                                </div>
+                            </div>
+                            
+                            <div id="buttonContainer" style="margin-top:10px;">
+                                <button id="addMarket" class="btn btn-default" type="button">Add new Market to Article</button>
+                                <button id="cancelAddMarket" class="btn btn-default hidden" type="button">Cancel</button>
                             </div>
                         </form>
                       </div>
