@@ -51,6 +51,7 @@
                           <li><a href="./userLists.php">My Lists</a></li>
                           <li><a href="./createArticle.php">Create Article</a></li>
                           <li class="active"><a href="./createSupermarket.php">Create Supermarket</a></li>
+                          <li><a href="./articleOverview.php">Article Overview</a></li>
                           <li class="divider"></li>
                           <li><a href="#">Settings</a></li>
                           <li class="divider"></li>

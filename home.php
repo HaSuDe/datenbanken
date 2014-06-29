@@ -50,6 +50,7 @@ Author Julian Suttner, Niklas Hatje, Cedric Deege
                           <li><a href="./userLists.php">My Lists</a></li>
                           <li class=><a href="./createArticle.php">Create Article</a></li>
                           <li class=><a href="./createSupermarket.php">Create Supermarket</a></li>
+                          <li><a href="./articleOverview.php">Article Overview</a></li>
                           <li class="divider"></li>
                           <li><a href="#">Settings</a></li>
                           <li class="divider"></li>
@@ -105,32 +106,32 @@ Author Julian Suttner, Niklas Hatje, Cedric Deege
             </section>
               <!-- main content end -->
               
-              <!-- Modal type Shoppinglist Name-->
-                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="listNameModal" class="modal fade">
-                  <div class="modal-dialog">
-                      <div class="modal-content">
-                          <div class="modal-header">
-                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                              <h4 class="modal-title">Enter Shoppinglist name</h4>
-                          </div>
-                          <div class="modal-body">
-                            <form action="/changeEventData" method="post">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                      <p>Enter Name</p>
-                                      <input type="text" name="listName" id="listName" placeholder="List name" autocomplete="off" class="modal-form-control placeholder-no-fix">
-                                    </div>
+            <!-- Modal type Shoppinglist Name-->
+            <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="listNameModal" class="modal fade">
+              <div class="modal-dialog">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                          <h4 class="modal-title">Enter Shoppinglist name</h4>
+                      </div>
+                      <div class="modal-body">
+                        <form action="/changeEventData" method="post">
+                            <div class="row">
+                                <div class="col-md-12">
+                                  <p>Enter Name</p>
+                                  <input type="text" name="listName" id="listName" placeholder="List name" autocomplete="off" class="modal-form-control placeholder-no-fix">
                                 </div>
-                            </form>
-                          </div>
-                          <div class="modal-footer">
-                              <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
-                              <button class="btn btn-success" id="shoppingListNameSubmit" type="submit">Save</button>
-                          </div>
+                            </div>
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                          <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+                          <button class="btn btn-success" id="shoppingListNameSubmit" type="submit">Save</button>
                       </div>
                   </div>
-                </div>
-               <!-- modal type Shoppinglist Name-->
+              </div>
+            </div>
+                <!-- modal type Shoppinglist Name-->
           </section>
 
        	<!-- JQuery -->

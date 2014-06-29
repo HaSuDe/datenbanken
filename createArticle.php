@@ -48,6 +48,7 @@
                           <li><a href="./userLists.php">My Lists</a></li>
                           <li class="active"><a href="./createArticle.php">Create Article</a></li>
                           <li><a href="./createSupermarket.php">Create Supermarket</a></li>
+                          <li><a href="./articleOverview.php">Article Overview</a></li>
                           <li class="divider"></li>
                           <li><a href="#">Settings</a></li>
                           <li class="divider"></li>
@@ -78,7 +79,7 @@
                                     <div class="form-group">
                                         <!-- Article Name -->
                                         <label>Name</label>
-                                        <input type="text" class="form-control" name="articleName" placeholder="">  
+                                        <input type="text" class="form-control" name="articleName" placeholder="Enter Name of Article">  
                                     </div>
                                     <div class="form-group">
                                         <!-- Article Brand -->
@@ -165,11 +166,7 @@
         <script src="./js/jquery.js"></script>
         <!-- Bootstrap -->
         <script src="./bs/js/bootstrap.min.js"></script> 
-        
         <!--Fileupload-->
         <script type="text/javascript" src="js/bootstrap-fileupload/bootstrap-fileupload.js"></script>
-        
-        <!-- login -->
-        <script src="./js/login.js"></script>
     </body>
 </html>
