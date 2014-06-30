@@ -10,6 +10,13 @@
 .panel-body{
 	background-color: #eeeeee;
 }
+.navbar-brand {
+    padding-top: 0px;
+    padding-left: 15px;
+}
+.navbar{
+    min-height: 70px;
+}
 
 .borderBox{
 	padding: 60px;

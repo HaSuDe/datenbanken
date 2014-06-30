@@ -38,7 +38,7 @@ and open the template in the editor.
                       <span class="icon-bar"></span>
                       <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="./home.php">Cool Logo Here</a>
+                    <a class="navbar-brand" href="./home.php"><img src="images/logo.png" alt="" width="70px"></a>
                   </div>
 
                   <!-- Collect the nav links, forms, and other content for toggling -->
@@ -54,7 +54,7 @@ and open the template in the editor.
                           <li><a href="./createSupermarket.php">Create Supermarket</a></li>
                           <li><a href="./articleOverview.php">Article Overview</a></li>
                           <li class="divider"></li>
-                          <li><a href="#">Settings</a></li>
+                          <li><a href="./settings.php">Settings</a></li>
                           <li class="divider"></li>
                           <li><a href="./logout.php">Logout</a></li>
                         </ul>
