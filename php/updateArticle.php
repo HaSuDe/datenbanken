@@ -14,7 +14,8 @@
     mysql_query($safeModeQuery);
     $resutlUpdateArticle = mysql_query($queryUpdateArticle);
     
-    $queryAddMarketArticle = "UPDATE MarketArticleManagement m SET m.prize = '$prize', m.PPU = ($size/$prize), m.unit = '$unit', m.size = '$size', m.brand = '$brand' WHERE m.marketID = '$marketID' AND m.articleID = '$id'";
+    
+    $queryAddMarketArticle = "UPDATE MarketArticleManagement m SET m.prize = '$prize', m.PPU = ($prize/$size), m.unit = '$unit', m.size = '$size', m.brand = '$brand' WHERE m.marketID = '$marketID' AND m.articleID = '$id'";
     $resutlAddMarketArticle = mysql_query($queryAddMarketArticle);
     
     $result = array('1'=>$resutlUpdateArticle, '2'=>$resutlAddMarketArticle);

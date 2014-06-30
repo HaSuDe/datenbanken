@@ -5,13 +5,6 @@ $(document).ready(function() {
 
 		var list = document.getElementById('list');
 
-/*		// save and clear List
-		$("#saveList").on('click', function(e) {
-			e.preventDefault();
-			//localStorage.setItem('todoList', list.innerHTML);
-			alertify.success("You have saved your list.");
-		});
- */
 		$("#clearList").on('click', function(e) {
 			e.preventDefault();
 			localStorage.clear();
@@ -114,7 +107,18 @@ $(document).ready(function() {
 							console.log("das ist keine Zahl");
 							$(event.target).text(originalContent);
 							
-						}
+						}else{
+                                                    // Change Prize with Amount
+                                                    var multiplikator = $(event.target).text();
+                                                    console.log("multiplikator" + multiplikator);
+                                                    var tmpRow = $(e.target).parent();
+                                                    console.log(tmpRow);
+                                                    var amount = tmpRow.children('.prize');
+                                                    console.log(amount);
+                                                    var value = amount.text();
+                                                    var newValue = multiplikator * value;
+                                                    amount.text(newValue);
+                                                }
 					// else try to set the new text and fill in the best prize and the market
 		    		} else {
 						var articleName = $(e.target).text();
@@ -122,7 +126,7 @@ $(document).ready(function() {
 						console.log(tmpRow);
 							//tmpRow = tmpRow.match(/\d+/);
 							rowNmbr = $('#myTable tbody').children('tr').length;
-						getPrize(tmpRow, articleName, rowNmbr, true, e);						
+						getPrize(tmpRow, articleName, rowNmbr, true, e);
 					}
 
 		    		// remove warningBox if there

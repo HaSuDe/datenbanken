@@ -66,15 +66,19 @@ $(document).ready(function() {
                     
                     $.post( "php/updateArticle.php", {id: articleID, aname: name, abrand: brand, amarket: market, aprize : prize, asize : amount, aunit : unit }, function(data) {
                             // add all lists 
-                            console.log(data);
+                            //console.log(data);
+                            if(data['1'] && data['2']){
+                                location.reload(); 
+                            }else{
+                                alertify.error("Wrong Values, please correct your input");
+                            }
+                            
                     }, 'json')
                     // if something went wrong, give error message
                     .fail(function(data) {
                             alertify.error("Oops Something went wrong please reload the page!");
                             console.log(data);
                     });
-                    
-                    //location.reload();
                 });
                 
                 $('#articleMarketButton').on('click', function(event){
@@ -88,13 +92,12 @@ $(document).ready(function() {
                     
                     
                     $.post( "php/createArticleMarket.php", {id: articleID, aname : name, abrand: brand, amarket: market, aprize : prize, asize : amount, aunit : unit }, function(data) {
-                            // Added
-                            if(data){
-                               location.reload(); 
-                            }else{
-                                alertify.error("Wrong Values, please correct your input");
-                            }
-                            
+                        // Added
+                        if(data){
+                           location.reload(); 
+                        }else{
+                            alertify.error("Wrong Values, please correct your input");
+                        }         
                     }, 'json')
                     // if something went wrong, give error message
                     .fail(function(data) {

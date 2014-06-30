@@ -9,7 +9,7 @@
     $size = $_POST['asize'];
     $brand = $_POST['abrand'];
     
-    $queryAddMarketArticle = "INSERT INTO MarketArticleManagement VALUES ('$marketID', '$articleID', '$prize', ($size/$prize), '$unit', '$size', '$brand')";
+    $queryAddMarketArticle = "INSERT INTO MarketArticleManagement VALUES ('$marketID', '$articleID', '$prize', ($prize/$size), '$unit', '$size', '$brand')";
     $resutlAddMarketArticle = mysql_query($queryAddMarketArticle);
     
     //$resutlAddMarketArticle = array('1'=>$marketID, '2'=>$articleID, '3'=>$prize, '4'=>$prize/$size, '5'=>$unit, '6'=>$size, '7'=>$brand, '8'=>$queryAddMarketArticle);
