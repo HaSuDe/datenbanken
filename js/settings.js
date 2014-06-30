@@ -1,6 +1,7 @@
 $(document).ready(function() {
 	console.log("Site loaded");
 	var findMIndex = 0;
+	loadValues();
 
 	$(document).on('click', function(e) {
 
@@ -25,6 +26,7 @@ $(document).ready(function() {
                       '</div>')
 
 		} else if (e.target.id === "saveMarketBtn") {
+			saveMarkets();
 			console.log();
 
 		} else if (e.target.id === "cancelMarketBtn") {
@@ -45,21 +47,50 @@ $(document).ready(function() {
 	});
 
 	function loadValues() {
+		var userName = $('#userName').text();
+		console.log(userName);
 
+	    $.post( 'php/loadUserData.php',{user : userName}, function(data) {
+	        // if post was successful
+	        console.log(data);
+	        
+	        var uName = $('#userName');
+	        var uEmail = $('#userEmail');
+	        var uCity = $('#userCity');
+	        var uCode = $('#userCode');
+	        var uAdress = $('#userAdress');
+	        
+	        uName.val(data['name']);
+	        uEmail.val(data['email']);
+	        uCity.val(data['city']);
+	        uCode.val(data['code']);
+	        uAdress.val(data['adress']);
+	        
+	        }, 'json') // I expect a JSON response
+	    .fail(function (data) {
+	        // if post had an error
+	        console.log('Failed to save other Fields in DB' +data);
+	        console.log(data);
+	    });
 	}
 
 	function saveMarkets() {
-		$.each($('#marketForm').children().children().children('input[type=text]')) {
-			$.post( "php/saveMarket.php", {market : $(this).val(), user : $('#userName').text()}, function(data) {
-
+		var allInputs = $('#marketForm').children().children().children('input[type=text]');
+		var success = false;
+		$.each(allInputs, function(index) {
+			$.post( "php/saveMarket.php", {marketID : $(this).val().replace(/\:.*/,''), user : $('#userName').text()}, function(data) {
+				console.log("success");
+				success = true;
 			}, 'json')
-			.fail(function(data)) {
+			.fail(function(data) {
 				alertify.error("Error while saving markets. Please try again");
 				console.log(data);
-				return;
-			}
-			alertify.success("Saved all Markets");
-		}
+				success = false;
+				return false;
+			});
+			if(success)
+				alertify.success("Saved all Markets");
+		});
 	}
 
 	function changePersonalSettings() {
@@ -84,7 +115,7 @@ $(document).ready(function() {
 			$(list).children('li').remove()
 			// add every result set as li to the result list
 			for(var i = 0; i<data.length; i++) {
-				list.append('<li class=marketChooser>' + data[i]['name'] + ', ' + data[i]['country'] + ' ' +  data[i]['code'] + ' ' + data[i]['city'] + ' ' + data[i]['street'] + '</li>');
+				list.append('<li class=marketChooser>' + data[i]['id'] + ': "' + data[i]['name'] + ', ' + data[i]['country'] + ' ' +  data[i]['code'] + ' ' + data[i]['city'] + ' ' + data[i]['street'] + '</li>');
 			}
 		}, 'json')
 		.fail(function(data) {

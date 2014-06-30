@@ -2,7 +2,7 @@ $(document).ready(function() {
 
 	$(document).on('click', function(e) {
 		if($(e.target).hasClass('marketChooser')) {
-			var market = $(e.target).text();
+			var market = $(e.target).text().replace(/\:.*/,'');
 			$('#marketFinder').val(market);
 			$('#findMarketM').modal('hide');
 		}
@@ -27,7 +27,7 @@ $(document).ready(function() {
 			$(list).children('li').remove()
 			// add every result set as li to the result list
 			for(var i = 0; i<data.length; i++) {
-				list.append('<li class=marketChooser>' + data[i]['name'] + ', ' + data[i]['country'] + ' ' +  data[i]['code'] + ' ' + data[i]['city'] + ' ' + data[i]['street'] + '</li>');
+				list.append('<li class=marketChooser>' + data[i]['id']+ ": " + data[i]['name'] + ', ' + data[i]['country'] + ' ' +  data[i]['code'] + ' ' + data[i]['city'] + ' ' + data[i]['street'] + '</li>');
 			}
 		}, 'json')
 		.fail(function(data) {

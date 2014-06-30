@@ -18,7 +18,7 @@ $abfrage = "SELECT * FROM Supermarkets
 $ergebnis = mysql_query($abfrage);
 while($row = mysql_fetch_object($ergebnis))
 {
-	$rowObject = array('name'=>$row->name,'country'=>$row->street, 'city'=>$row->city,'code'=>$row->code, 'street'=>$row->street,'longitude'=>$row->longitude, 'latitude'=>$row->latitude);
+	$rowObject = array('id'=>$row->marketID,'name'=>$row->name,'country'=>$row->country, 'city'=>$row->city,'code'=>$row->code, 'street'=>$row->street,'longitude'=>$row->longitude, 'latitude'=>$row->latitude);
 	array_push($resultArray, $rowObject);
 } 
 

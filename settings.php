@@ -85,34 +85,34 @@ Author Julian Suttner, Niklas Hatje, Cedric Deege
                           <div class="form-group">
                             <label class="col-lg-2 control-label">Email:</label>
                             <div class="col-lg-10">
-                              <input id="userEmail" name="email" class="form-control" type="text" value="janesemail@gmail.com">
+                              <input id="userEmail" name="email" class="form-control" type="text" placeholder="email">
                             </div>
                           </div>
                           <div class="form-group">
                             <label class="col-md-2 control-label">Password:</label>
                             <div class="col-md-10">
-                              <input name="password" class="form-control" type="password" value="11111122333">
+                              <input name="password" class="form-control" type="password" placeholder="">
                             </div>
                           </div>
                           <div class="form-group">
                             <label class="col-md-2 control-label">Confirm password:</label>
                             <div class="col-md-10">
-                              <input name="password" class="form-control" type="password" value="11111122333">
+                              <input name="password" class="form-control" type="password" placeholder="">
                             </div>
                           </div>
                           <div class="form-group">
                             <label class="col-lg-2 control-label">City, postal code:</label>
                             <div class="col-lg-5">
-                              <input id="userCity" name="city" class="form-control" type="text" value="Hamburg">
+                              <input id="userCity" name="city" class="form-control" type="placeholder" placeholder="City">
                             </div>
                             <div class="col-lg-5">
-                              <input id="userCode" name="code" class="form-control" type="text" value="12345">
+                              <input id="userCode" name="code" class="form-control" type="placeholder" placeholder="Code">
                             </div>
                           </div>
                           <div class="form-group">
                             <label class="col-lg-2 control-label">Address:</label>
                             <div class="col-lg-10">
-                              <input id="userStreet" name="address" class="form-control" type="text" value="Teststraße 2">
+                              <input id="userStreet" name="address" class="form-control" type="text" placeholder="Address">
                             </div>
                           </div>
                           <div class="form-group">
@@ -222,8 +222,6 @@ Author Julian Suttner, Niklas Hatje, Cedric Deege
         <script src="js/alertify.js"></script>
 
         <script src="js/settings.js"></script>
-        
-        <script src="js/loadUserData.js"></script>
 
     </body>
 </html>

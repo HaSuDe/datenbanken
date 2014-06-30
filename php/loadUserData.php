@@ -5,15 +5,15 @@
 <?php
     require_once 'config.php';
     
-    $userName = $_POST['userName'];
+    $userName = $_POST['user'];
     
-    $queryUserID = "SELECT userID FROM Users WHERE name = '$userName";
+    $queryUserID = "SELECT userID FROM Users WHERE name = '$userName'";
     $resultUserID = mysql_query($queryUserID);
-    $row = mysql_fetch_array($resultUserID);
+    $row = mysql_fetch_object($resultUserID);
     
-    $userID = $row->userID;
+    $uID = $row->userID;
 
-    $queryUserData = "SELECT * FROM Users u WHERE u.userID = '$userID' ";
+    $queryUserData = "SELECT * FROM Users u WHERE u.userID = '$uID' ";
     $resultUserData = mysql_query($queryUserData);
     // for every row
     $row = mysql_fetch_object($resultUserData);
