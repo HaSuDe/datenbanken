@@ -18,6 +18,8 @@
         <link href="./bs/css/bootstrap.min.css" rel="stylesheet">
         <link href="./css/editableTable.css" rel="stylesheet">
         <link href="./css/style.css" rel="stylesheet">
+        <link href="./css/alertify.core.css" rel="stylesheet">
+        <link href="./css/alertify.bootstrap.css" rel="stylesheet">
     </head>
     <body>
         <section id="container">
@@ -41,7 +43,7 @@
                         <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo "".$_SESSION["username"]."" ?><b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                          <li><a href="./home.html">Home</a></li>
+                          <li><a href="./home.php">Home</a></li>
                           <li><a href="./userLists.php">My Lists</a></li>
                           <li><a href="./createArticle.php">Create Article</a></li>
                           <li><a href="./createSupermarket.php">Create Supermarket</a></li>
@@ -85,17 +87,29 @@
                             <div id="showArticle" class="row">
                                 <div class="col-md-6">
                                   <p>Name</p>
-                                  <input type="text" name="listName" id="articleName" placeholder="Name" autocomplete="off" class="modal-form-control placeholder-no-fix">
+                                  <input type="text" name="listName" id="articleName" placeholder="Name" autocomplete="off" class="form-control placeholder-no-fix">
                                   <p>Brand</p>
-                                  <input type="text" name="listName" id="articleBrand" placeholder="Brand" autocomplete="off" class="modal-form-control placeholder-no-fix">
+                                  <input type="text" name="listName" id="articleBrand" placeholder="Brand" autocomplete="off" class="form-control placeholder-no-fix">
                                   <p>Supermarket</p>
-                                  <input type="text" name="listName" id="articleSupermarket" placeholder="Supermarket" autocomplete="off" class="modal-form-control placeholder-no-fix">
+                                    <select id="articleMarket" class="form-control optionMenu" name="articleSupermarket">
+                                        <option value="default">--Enter Supermarket--</option>
+                                        <option value="1">Rewe - Neustadt</option>
+                                        <option value="2">Aldi - Neustadt</option>
+                                        <option value="3">Penny - Neustadt</option>
+                                    </select>
                                   <p>Prize in Euro</p>
-                                  <input type="text" name="listName" id="articlePrize" placeholder="Supermarket" autocomplete="off" class="modal-form-control placeholder-no-fix">
+                                  <input type="text" name="listName" id="articlePrize" placeholder="Prize" autocomplete="off" class="form-control placeholder-no-fix">
                                   <p>Amount</p>
-                                  <input type="text" name="listName" id="articleSize" placeholder="Supermarket" autocomplete="off" class="modal-form-control placeholder-no-fix">
+                                  <input type="text" name="listName" id="articleSize" placeholder="Size" autocomplete="off" class="form-control placeholder-no-fix">
                                   <p>Unit</p>
-                                  <input type="text" name="listName" id="articleUnit" placeholder="Supermarket" autocomplete="off" class="modal-form-control placeholder-no-fix">
+                                        <select id="articleUnit" class="form-control optionMenu">
+                                            <option value="default">--Unit--</option>
+                                            <option value="ml">ml</option>
+                                            <option value="l">l</option>
+                                            <option value="g">g</option>
+                                            <option value="kg">kg</option>
+                                            <option value="pieces">pieces</option>
+                                        </select>
                                 </div>
                                 <div class="col-md-6">
                                     <img id="articleImage" src="uploads/article/noImage.jpg" style="width: 200px; height: 200px; margin-top:10px; " alt="Article Image">
@@ -105,17 +119,29 @@
                             <div id="editArticle" class="row hidden">
                                 <div class="col-md-6">
                                   <p>Name</p>
-                                  <input type="text" name="listName" id="editArticleName" placeholder="Name" autocomplete="off" class="modal-form-control placeholder-no-fix">
+                                  <input type="text" name="listName" id="editArticleName" placeholder="Name" autocomplete="off" class="form-control placeholder-no-fix">
                                   <p>Brand</p>
-                                  <input type="text" name="listName" id="editArticleBrand" placeholder="Brand" autocomplete="off" class="modal-form-control placeholder-no-fix">
+                                  <input type="text" name="listName" id="editArticleBrand" placeholder="Brand" autocomplete="off" class="form-control placeholder-no-fix">
                                   <p>Supermarket</p>
-                                  <input type="text" name="listName" id="editArticleSupermarket" placeholder="Supermarket" autocomplete="off" class="modal-form-control placeholder-no-fix">
+                                    <select id="editArticleMarket" class="form-control optionMenu" name="articleSupermarket">
+                                        <option value="default">--Enter Supermarket--</option>
+                                        <option value="1">Rewe - Neustadt</option>
+                                        <option value="2">Aldi - Neustadt</option>
+                                        <option value="3">Penny - Neustadt</option>
+                                    </select>
                                   <p>Prize in Euro</p>
-                                  <input type="text" name="listName" id="editArticlePrize" placeholder="Supermarket" autocomplete="off" class="modal-form-control placeholder-no-fix">
+                                  <input type="text" name="listName" id="editArticlePrize" placeholder="Prize" autocomplete="off" class="form-control placeholder-no-fix">
                                   <p>Amount</p>
-                                  <input type="text" name="listName" id="editArticleSize" placeholder="Supermarket" autocomplete="off" class="modal-form-control placeholder-no-fix">
+                                  <input type="text" name="listName" id="editArticleSize" placeholder="Amount" autocomplete="off" class="form-control placeholder-no-fix">
                                   <p>Unit</p>
-                                  <input type="text" name="listName" id="editArticleUnit" placeholder="Supermarket" autocomplete="off" class="modal-form-control placeholder-no-fix">
+                                    <select id="editArticleUnit" class="form-control optionMenu">
+                                        <option value="default">--Unit--</option>
+                                        <option value="ml">ml</option>
+                                        <option value="l">l</option>
+                                        <option value="g">g</option>
+                                        <option value="kg">kg</option>
+                                        <option value="pieces">pieces</option>
+                                    </select>
                                 </div>
                             </div>
                             
@@ -126,8 +152,14 @@
                         </form>
                       </div>
                       <div class="modal-footer">
-                          <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
-                          <button class="btn btn-success" id="articleSubmitButton" type="submit">Save</button>
+                            <div id="articleChange">
+                                <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+                                <button class="btn btn-success" id="articleChangeButton" type="button">Save</button>
+                            </div>
+                            <div class="hidden" id="articleMarketAdd">
+                                <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+                                <button class="btn btn-success" id="articleMarketButton" type="button">Save</button>
+                            </div>
                       </div>
                   </div>
               </div>
@@ -145,5 +177,7 @@
         <script src="js/articleOverview.js"></script> 
         <!-- Article View -->
         <script src="js/articleView.js"></script> 
+        <!-- Alertify-->
+        <script src="js/alertify.js"></script>
     </body>
 </html>

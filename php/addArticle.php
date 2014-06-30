@@ -57,7 +57,7 @@
                             $row = mysql_fetch_object($result3);
 
                             /*Create Article in MarketArticleManagement*/
-                            $query4 = "INSERT INTO MarketArticleManagement VALUES ('$articleSupermarket', '$row->articleID', '$articlePrize', ($articlePrize/$articleAmount), '$articleAmountUnit', '$articleAmount', '$articleBrand')";
+                            $query4 = "INSERT INTO MarketArticleManagement VALUES ('$articleSupermarket', '$row->articleID', '$articlePrize', ($articleAmount/$articlePrize), '$articleAmountUnit', '$articleAmount', '$articleBrand')";
                             $result4 = mysql_query($query4);
 
                             if($result2 == true && result4 == true){ 
