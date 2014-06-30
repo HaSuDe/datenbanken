@@ -75,44 +75,44 @@ Author Julian Suttner, Niklas Hatje, Cedric Deege
                         </div>
                         <h3>Personal info</h3>
                         
-                        <form class="form-horizontal" role="form">
+                        <form id="personalForm" class="form-horizontal" role="form">
                           <div class="form-group">
                             <label class="col-lg-2 control-label">Username:</label>
                             <div class="col-lg-10">
-                              <input class="form-control" type="text" value="Jane">
+                              <input name="name" class="form-control" type="text" value="mm" readonly>
                             </div>
                           </div>
                           <div class="form-group">
                             <label class="col-lg-2 control-label">Email:</label>
                             <div class="col-lg-10">
-                              <input class="form-control" type="text" value="janesemail@gmail.com">
+                              <input name="email" class="form-control" type="text" value="janesemail@gmail.com">
                             </div>
                           </div>
                           <div class="form-group">
                             <label class="col-md-2 control-label">Password:</label>
                             <div class="col-md-10">
-                              <input class="form-control" type="password" value="11111122333">
+                              <input name="password" class="form-control" type="password" value="11111122333">
                             </div>
                           </div>
                           <div class="form-group">
                             <label class="col-md-2 control-label">Confirm password:</label>
                             <div class="col-md-10">
-                              <input class="form-control" type="password" value="11111122333">
+                              <input name="password" class="form-control" type="password" value="11111122333">
                             </div>
                           </div>
                           <div class="form-group">
                             <label class="col-lg-2 control-label">City, postal code:</label>
                             <div class="col-lg-5">
-                              <input class="form-control" type="text" value="Hamburg">
+                              <input name="city" class="form-control" type="text" value="Hamburg">
                             </div>
                             <div class="col-lg-5">
-                              <input class="form-control" type="text" value="12345">
+                              <input name="code" class="form-control" type="text" value="12345">
                             </div>
                           </div>
                           <div class="form-group">
                             <label class="col-lg-2 control-label">Address:</label>
                             <div class="col-lg-10">
-                              <input class="form-control" type="text" value="Teststraße 2">
+                              <input name="address" class="form-control" type="text" value="Teststraße 2">
                             </div>
                           </div>
                           <div class="form-group">

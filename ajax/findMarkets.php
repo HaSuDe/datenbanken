@@ -18,18 +18,7 @@ $abfrage = "SELECT * FROM Supermarkets
 $ergebnis = mysql_query($abfrage);
 while($row = mysql_fetch_object($ergebnis))
 {
-	// evtl für andere sachen
-	$what = array("ä", "ö", "ü", "Ä", "Ö", "Ü", "ß"); 
-    $how = array("ae", "oe", "ue", "Ae", "Oe", "Ue", "ss"); 
-	$nameVal = str_replace($what,$how,$row->name);
-	$countryVal = str_replace ($what, $how, $row->country);
-	$cityVal = str_replace ($what, $how, $row->city);
-	$codeVal = str_replace ($what, $how, $row->code);
-	$streetVal = str_replace ($what, $how, $row->street);
-	$longitudeVal = str_replace ($what,$how,$row->longitude);
-	$latitudeVal = str_replace ($what,$how,$row->latitude);
-
-	$rowObject = array('name'=>$nameVal,'country'=>$countryVal, 'city'=>$cityVal,'code'=>$codeVal, 'street'=>$streetVal,'longitude'=>$longitudeVal, 'latitude'=>$latitudeVal);
+	$rowObject = array('name'=>$row->name,'country'=>$row->street, 'city'=>$row->city,'code'=>$row->code, 'street'=>$row->street,'longitude'=>$row->longitude, 'latitude'=>$row->latitude);
 	array_push($resultArray, $rowObject);
 } 
 

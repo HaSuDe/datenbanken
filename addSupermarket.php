@@ -18,6 +18,15 @@ $query2 = "SELECT street FROM Supermarkets s WHERE s.street LIKE '$supermarketSt
 $result2 = mysql_query($query2);
 $size2 = mysql_num_rows($result2);
 
+$what = array("ä", "ö", "ü", "Ä", "Ö", "Ü", "ß"); 
+$how = array("ae", "oe", "ue", "Ae", "Oe", "Ue", "ss");
+$supermarketName = str_replace($what,$how,$supermarketName);
+$supermarketStreet = str_replace($what,$how,$supermarketStreet);
+$supermarketCity = str_replace($what,$how,$supermarketCity);
+$supermarketZipCode = str_replace($what,$how,$supermarketZipCode);
+$supermarketCountry = str_replace($what,$how,$supermarketCountry);
+$supermarketLongitude = str_replace($what,$how,$supermarketLongitude);
+$supermarketLatitude = str_replace($what,$how,$supermarketLatitude);
 
 
 if($size1 == 0 || $size2 == 0){

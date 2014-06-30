@@ -110,12 +110,7 @@
                                     <div class="form-group">  
                                         <!-- Supermarket -->
                                         <label for="supermarket">Supermarket</label>
-                                        <select class="form-control optionMenu" name="articleSupermarket">
-                                            <option value="default">--Enter Supermarket--</option>
-                                            <option value="1">Rewe - Neustadt</option>
-                                            <option value="2">Aldi - Neustadt</option>
-                                            <option value="3">Penny - Neustadt</option>
-                                        </select>
+                                        <input id="marketFinder" class="form-control" type='text' placeholder="Click to find market"></input>
                                     </div>                                 
                                     <div class="form-group addButton"> 
                                       <button type="submit" class="btn btn-default">Add Article</button>
@@ -152,13 +147,76 @@
                     </div>
                 </section>
             </section>
-            <!-- main content end -->                        
+            <!-- main content end --> 
+            <!-- Modal Find Market-->
+              <div id="findMarketM" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                          <h4 class="modal-title">Find Market</h4>
+                      </div>
+                      <div class="modal-body">
+                        <form id="modalSearch">
+                            <div class="row">
+                                  <div class="col-md-12">
+                                    <div class="form-group">
+                                      <label class="control-label">Market name (e.g. REWE):</label>
+                                      <input name="name" class="form-control modalSearch" type="text" placeholder="Marketname here">
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <label class="control-label">Country:</label>
+                                    <input name="country" class="form-control modalSearch" type="text" placeholder="Enter your Country">
+                                  </div>
+                                  <div class="col-md-6">
+                                    <label class="control-label">City:</label>
+                                    <input name="city" class="form-control modalSearch" type="text" placeholder="Enter your City">
+                                  </div>
+                                  <div class="col-md-6">
+                                    <label class="control-label">Postal Code:</label>
+                                    <input name="code" class="form-control modalSearch" type="text" placeholder="Postal Code">
+                                  </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label class="control-label">Address:</label>
+                                    <input name="street" class="form-control modalSearch" type="text" placeholder="Enter the adress the market should be in">
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="control-label">Longitude:</label>
+                                    <input name="longitude" class="form-control modalSearch" type="text" placeholder="You can find this value on Google Maps">
+                                  </div>
+                                  <div class="col-md-6">
+                                    <label class="control-label">Latitude:</label>
+                                    <input name="latitude" class="form-control modalSearch" type="text" placeholder="You can find this value on Google Maps">
+                                  </div>
+                            </div>
+                        </form>
+                      </div>
+
+                      <!-- Result view -->
+                      <div class="marketView col-sm-12">
+                        <h4>The following Markets were found</h4>
+                        <ol id="marketList">
+                        </ol>
+                      </div>
+                      <div class="modal-footer">
+                          <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+                      </div>
+                  </div>
+              </div>
+            </div>
+                <!-- modal type Shoppinglist Name-->                       
         </section>
 
         <!-- JQuery -->
         <script src="./js/jquery.js"></script>
+
+        <script src="./js/addArticle.js"></script>
         <!-- Bootstrap -->
         <script src="./bs/js/bootstrap.min.js"></script> 
+        <script src="js/alertify.js"></script>
         <!--Fileupload-->
         <script type="text/javascript" src="js/bootstrap-fileupload/bootstrap-fileupload.js"></script>
     </body>
