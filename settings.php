@@ -79,7 +79,7 @@ Author Julian Suttner, Niklas Hatje, Cedric Deege
                           <div class="form-group">
                             <label class="col-lg-2 control-label">Username:</label>
                             <div class="col-lg-10">
-                              <input id="userName" name="name" class="form-control" type="text" value="mm" readonly>
+                              <input id="userName" name="name" class="form-control" type="text" value=<?php echo "".$_SESSION["username"].""?> readonly>
                             </div>
                           </div>
                           <div class="form-group">
