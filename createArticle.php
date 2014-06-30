@@ -120,22 +120,15 @@
                                     <div class="form-group addButton"> 
                                       <button type="submit" class="btn btn-default">Add Article</button>
                                     </div>
-                                    <div class="errField">
-                                        <?php 
-                                            if(isset($_SESSION["status"]) && $_SESSION["status"] != 'Article successfully created') {
-                                                echo "".$_SESSION["status"]."";
-                                                $_SESSION["status"] = '';
-                                            }
-                                        ?>
-                                    </div>
-                                    <div class="successField">
-                                        <?php 
-                                            if(isset($_SESSION["status"]) && $_SESSION["status"] == 'Article successfully created'){
-                                                echo "".$_SESSION["status"]."";
-                                                $_SESSION["status"] = '';
-                                            }
-                                        ?>
-                                    </div>
+                                    <?php 
+                                        if(isset($_SESSION["status"]) && $_SESSION["status"] != 'Article successfully created' && $_SESSION["status"] != '') {
+                                            echo '<div class="alert alert-danger">'.$_SESSION["status"].'</div>';
+                                            $_SESSION["status"] = '';
+                                        } else if(isset($_SESSION["status"]) && $_SESSION["status"] == 'Article successfully created'){
+                                            echo '<div class="alert alert-success">'.$_SESSION["status"].'</div>';
+                                            $_SESSION["status"] = '';
+                                        }
+                                    ?>
                                 </div>
                                 <div class="col-md-3">
                                     <label for="supermarket">Image</label>

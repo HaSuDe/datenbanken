@@ -81,7 +81,7 @@
 
                         
                       <div class="col-md-12">
-                            <form class="form-reg"">
+                            <form class="form-reg">
                               <div class="form-group">
                                 <!-- Supermarket Name -->
                                 <label>Name</label>
