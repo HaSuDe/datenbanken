@@ -1,2 +1,9 @@
 <?xml version="1.0"?>
-<pages/>
+<pages>
+  <article>
+    <title>Milch</title>
+  </article>
+  <article>
+    <title>Honig</title>
+  </article>
+</pages>

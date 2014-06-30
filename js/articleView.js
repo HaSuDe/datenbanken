@@ -17,7 +17,7 @@ $(document).ready(function() {
                 $('#articleImage').attr("src", './uploads/' + articleImage);
                 
                 $('#articleBrand').val(data[1][0].brand);
-                //$('#articleSupermarket').val(data[1][0].marketName);
+                $('#marketFinder').val(data[1][0].marketID);
                 $('#articlePrize').val(data[1][0].prize);
                 $('#articleSize').val(data[1][0].size);
                 $('#articleUnit').val(data[1][0].unit);
@@ -59,7 +59,7 @@ $(document).ready(function() {
                     // Get Values of Modal
                     var name = $('#articleName').val();
                     var brand = $('#articleBrand').val();
-                    var market = $('#articleMarket').val();
+                    var market = $('#marketFinder').val();
                     var prize = $('#articlePrize').val();
                     var amount = $('#articleSize').val();
                     var unit = $('#articleUnit').val();
@@ -85,7 +85,7 @@ $(document).ready(function() {
                     // Get Values of Modal
                     var name = $('#editArticleName').val();
                     var brand = $('#editArticleBrand').val();
-                    var market = $('#editArticleMarket').val();
+                    var market = $('.finderedit').val();
                     var prize = $('#editArticlePrize').val();
                     var amount = $('#editArticleSize').val();
                     var unit = $('#editArticleUnit').val();

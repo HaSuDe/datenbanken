@@ -110,7 +110,7 @@
                                     <div class="form-group">  
                                         <!-- Supermarket -->
                                         <label for="supermarket">Supermarket</label>
-                                        <input id="marketFinder" class="form-control" type='text' placeholder="Click to find market"></input>
+                                        <input name="articleSupermarket" id="marketFinder" class="form-control" type='text' placeholder="Click to find market"></input>
                                     </div>                                 
                                     <div class="form-group addButton"> 
                                       <button type="submit" class="btn btn-default">Add Article</button>

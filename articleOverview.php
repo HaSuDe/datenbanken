@@ -91,12 +91,7 @@
                                   <p>Brand</p>
                                   <input type="text" name="listName" id="articleBrand" placeholder="Brand" autocomplete="off" class="form-control placeholder-no-fix">
                                   <p>Supermarket</p>
-                                    <select id="articleMarket" class="form-control optionMenu" name="articleSupermarket">
-                                        <option value="default">--Enter Supermarket--</option>
-                                        <option value="1">Rewe - Neustadt</option>
-                                        <option value="2">Aldi - Neustadt</option>
-                                        <option value="3">Penny - Neustadt</option>
-                                    </select>
+                                    <input name="articleSupermarket" id="marketFinder" class="form-control" type='text' placeholder="Click to find market"></input>
                                   <p>Prize in Euro</p>
                                   <input type="text" name="listName" id="articlePrize" placeholder="Prize" autocomplete="off" class="form-control placeholder-no-fix">
                                   <p>Amount</p>
@@ -123,12 +118,7 @@
                                   <p>Brand</p>
                                   <input type="text" name="listName" id="editArticleBrand" placeholder="Brand" autocomplete="off" class="form-control placeholder-no-fix">
                                   <p>Supermarket</p>
-                                    <select id="editArticleMarket" class="form-control optionMenu" name="articleSupermarket">
-                                        <option value="default">--Enter Supermarket--</option>
-                                        <option value="1">Rewe - Neustadt</option>
-                                        <option value="2">Aldi - Neustadt</option>
-                                        <option value="3">Penny - Neustadt</option>
-                                    </select>
+                                    <input name="articleSupermarket" id="marketFinder" class="form-control finderedit" type='text' placeholder="Click to find market"></input>
                                   <p>Prize in Euro</p>
                                   <input type="text" name="listName" id="editArticlePrize" placeholder="Prize" autocomplete="off" class="form-control placeholder-no-fix">
                                   <p>Amount</p>

@@ -25,11 +25,11 @@
         // create object
         $marketID = $row2->marketID;
         
-        $queryMarketName = "SELECT s.name FROM Supermarkets s WHERE s.marketID = '$marketID'";
-        $resultMarketName = mysql_query($queryMarketName);
-        $marketName = mysql_fetch_object($resultMarketName);
+//        $queryMarketName = "SELECT s.name FROM Supermarkets s WHERE s.marketID = '$marketID'";
+//        $resultMarketName = mysql_query($queryMarketName);
+//        $marketName = mysql_fetch_object($resultMarketName);
         
-        $rowObject = array('marketName'=>$marketName->name, 'size'=>$row2->size, 'unit'=>$row2->unit, 'prize'=>$row2->prize, 'brand'=>$row2->brand);
+        $rowObject = array('marketID'=>$marketID, 'size'=>$row2->size, 'unit'=>$row2->unit, 'prize'=>$row2->prize, 'brand'=>$row2->brand);
         // push into array
         array_push($resultArray, $rowObject);
     } 
