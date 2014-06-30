@@ -155,7 +155,67 @@
               </div>
             </div>
            <!-- modal type Shoppinglist Name-->
-            
+
+           <!-- Modal Find Market-->
+              <div id="findMarketM" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                          <h4 class="modal-title">Find Market</h4>
+                      </div>
+                      <div class="modal-body">
+                        <form id="modalSearch">
+                            <div class="row">
+                                  <div class="col-md-12">
+                                    <div class="form-group">
+                                      <label class="control-label">Market name (e.g. REWE):</label>
+                                      <input name="name" class="form-control modalSearch" type="text" placeholder="Marketname here">
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <label class="control-label">Country:</label>
+                                    <input name="country" class="form-control modalSearch" type="text" placeholder="Enter your Country">
+                                  </div>
+                                  <div class="col-md-6">
+                                    <label class="control-label">City:</label>
+                                    <input name="city" class="form-control modalSearch" type="text" placeholder="Enter your City">
+                                  </div>
+                                  <div class="col-md-6">
+                                    <label class="control-label">Postal Code:</label>
+                                    <input name="code" class="form-control modalSearch" type="text" placeholder="Postal Code">
+                                  </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label class="control-label">Address:</label>
+                                    <input name="street" class="form-control modalSearch" type="text" placeholder="Enter the adress the market should be in">
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="control-label">Longitude:</label>
+                                    <input name="longitude" class="form-control modalSearch" type="text" placeholder="You can find this value on Google Maps">
+                                  </div>
+                                  <div class="col-md-6">
+                                    <label class="control-label">Latitude:</label>
+                                    <input name="latitude" class="form-control modalSearch" type="text" placeholder="You can find this value on Google Maps">
+                                  </div>
+                            </div>
+                        </form>
+                      </div>
+                      
+                      <!-- Result view -->
+                      <div class="marketView col-sm-12">
+                        <h4>The following Markets were found</h4>
+                        <ol id="marketList">
+                        </ol>
+                      </div>
+                      <div class="modal-footer">
+                          <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+                      </div>
+                  </div>
+              </div>
+            </div>
+                <!-- modal type Shoppinglist Name-->
             
         </section>
 

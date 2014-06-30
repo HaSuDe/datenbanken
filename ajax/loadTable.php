@@ -13,7 +13,7 @@ function load() {
 		$abfrage = "SELECT a.name AS article, lam.amount AS amount 
 		FROM Articles a, ListArticleManagement lam, ShoppingLists s
 		WHERE s.listID = lam.listID AND a.articleID = lam.articleID
-		AND s.listID = $listID"; 
+		AND s.listID = $listID";
 
 		$ergebnis = mysql_query($abfrage);
 		// for every row
@@ -21,7 +21,8 @@ function load() {
 			
 			// create table row
 			$rowObject = '<tr id="tableRow'.$rowIndex.'"><td class="editable article">'.$row->article.'</td>
-						  <td class="editable amount" >'.$row->amount.'</td><td class="prize">Prize</td><td class="market">Market</td></tr>';
+						  <td class="editable amount" >'.$row->amount.'</td><td class="unit">unit here</td>
+						  <td class="prize">Prize</td><td class="market">Market</td></tr>';
 			$rowIndex++;
 			echo $rowObject; 
 		} 

@@ -58,11 +58,12 @@ Author Julian Suttner, Niklas Hatje, Cedric Deege
                       <h1>Your Shopping List</h1>
                     </div>
                         <table id="myTable" class="table">
-                          <thead> <tr> <th>Article</th> <th>Amount</th> <th>Prize</th> <th>Market</th> </tr> </thead>
+                          <thead> <tr> <th>Article</th> <th>Amount</th> <th>Unit</th> <th>Prize</th> <th>Market</th> </tr> </thead>
                           <tbody> 
                             <tr id="tableRow0"> 
                               <td class="editable article">Type here for new Article</td> 
                               <td class="editable amount" >1</td> 
+                              <td class="unit">unit here</td>
                               <td class="prize" >Prize</td> 
                               <td class="market">
                                 Market

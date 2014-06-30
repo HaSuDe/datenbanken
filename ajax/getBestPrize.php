@@ -4,7 +4,7 @@ require_once '../php/config.php';
 $article = $_GET['article']; 
 $resultArray = array();
 
-$abfrage = "SELECT mam.PPU AS comp, s.name AS sName
+$abfrage = "SELECT mam.PPU AS comp, s.name AS sName, mam.unit AS unit
 FROM Articles a, Supermarkets s, MarketArticleManagement mam
 LEFT OUTER JOIN MarketOfferManagement mom ON mam.marketID = mom.marketID AND mam.articleID = mom.articleID
 WHERE a.articleID = mam.articleID AND s.marketID = mam.marketID
@@ -13,7 +13,7 @@ AND a.name LIKE '$article' ORDER BY a.name, mam.PPU";
 $ergebnis = mysql_query($abfrage);
 while($row = mysql_fetch_object($ergebnis))
 {
-	$rowObject = array('market'=>$row->sName,'prize'=>$row->comp);
+	$rowObject = array('market'=>$row->sName,'prize'=>$row->comp, 'unit'=>$row->unit);
 	array_push($resultArray, $rowObject);
 } 
 

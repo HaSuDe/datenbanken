@@ -66,6 +66,7 @@ $(document).ready(function() {
                 // if post was successful
                 console.log(data);
                 alertify.success("You have successfully saved your list.");
+                $('#listNameModal').modal('hide');
                 }, 'json') // I expect a JSON response
             .fail(function (data) {
                 // if post had an error

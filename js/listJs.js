@@ -126,7 +126,7 @@ $(document).ready(function() {
 						console.log(tmpRow);
 							//tmpRow = tmpRow.match(/\d+/);
 							rowNmbr = $('#myTable tbody').children('tr').length;
-						getPrize(tmpRow, articleName, rowNmbr, true, e);
+						getPrize(tmpRow, articleName, rowNmbr, originalContent, e);
 					}
 
 		    		// remove warningBox if there
@@ -152,13 +152,14 @@ $(document).ready(function() {
 		loadToDo();
 });
 
-function getPrize(row, articleN, rowNmbr, oriContent, clicked, e){
+function getPrize(row, articleN, rowNmbr, oriContent, e){
 	console.log("getting Prize");
 	// Change Prize and Market for Row
 	console.log(articleN);
 	$.get( "ajax/getBestPrize.php", {article: articleN}, function(data) {
 		console.log(data[0]);
 		$('#myTable td.prize:eq(' + row +')').text(data[0].prize);
+		$('#myTable td.unit:eq(' + row +')').text(data[0].unit);
 		// if more then 1 row is returned make Markets selectable
 		if (data.length > 1) {
 			$('#myTable td.market:eq(' + row +')').text("");
@@ -182,7 +183,7 @@ function getPrize(row, articleN, rowNmbr, oriContent, clicked, e){
 		console.log("tmpRow: " + row + "rowNmbr: " + rowNmbr);
 		if (row >= rowNmbr) {
 			$('#myTable > tbody:first').append('<tr id="tableRow' + row + '"> <td class="editable article">Article</td> <td class="editable amount" >1</td>' + 
-									   '<td class="prize">Prize</td> <td class="market">Market</td> </tr> </tbody>');
+									   '<td class="unit">unit here</td><td class="prize">Prize</td> <td class="market">Market</td> </tr> </tbody>');
 		}									
 	}, 'json')
 	// if something went wrong, give error message and reset text
