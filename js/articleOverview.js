@@ -5,7 +5,7 @@ $(document).ready(function() {
 	$.get( "php/getAllArticles.php", function(data) {
 		// add all lists
 		if (data.length <= 0) {
-			$('#articleList').append('<h4>You dont have any lists yet, create one <a href="./home.php">here</a></h4');
+			$('#articleList').append('<h4>You dont have any articles yet, create one <a href="./createArticle.php">here</a></h4');
 		} else {
 			listData = data;
 			for (var i = 0; i < data.length; i++) {

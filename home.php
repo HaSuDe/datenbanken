@@ -52,7 +52,7 @@ Author Julian Suttner, Niklas Hatje, Cedric Deege
                           <li class=><a href="./createSupermarket.php">Create Supermarket</a></li>
                           <li><a href="./articleOverview.php">Article Overview</a></li>
                           <li class="divider"></li>
-                          <li><a href="#">Settings</a></li>
+                          <li><a href="./settings.php">Settings</a></li>
                           <li class="divider"></li>
                           <li><a href="./logout.php">Logout</a></li>
                         </ul>

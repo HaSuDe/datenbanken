@@ -35,7 +35,7 @@
                       <span class="icon-bar"></span>
                       <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Logo</a>
+                      <a class="navbar-brand" href="./home.php">Logo</a>
                   </div>
                   <!-- Collect the nav links, forms, and other content for toggling -->
                   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">  
@@ -44,13 +44,13 @@
                         <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo "".$_SESSION["username"]."" ?><b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                          <li><a href="./home.html">Home</a></li>
+                          <li><a href="./home.php">Home</a></li>
                           <li><a href="./userLists.php">My Lists</a></li>
                           <li class="active"><a href="./createArticle.php">Create Article</a></li>
                           <li><a href="./createSupermarket.php">Create Supermarket</a></li>
                           <li><a href="./articleOverview.php">Article Overview</a></li>
                           <li class="divider"></li>
-                          <li><a href="#">Settings</a></li>
+                          <li><a href="./settings.php">Settings</a></li>
                           <li class="divider"></li>
                           <li><a href="./logout.php">Logout</a></li>
                         </ul>

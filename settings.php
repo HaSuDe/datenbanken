@@ -79,13 +79,13 @@ Author Julian Suttner, Niklas Hatje, Cedric Deege
                           <div class="form-group">
                             <label class="col-lg-2 control-label">Username:</label>
                             <div class="col-lg-10">
-                              <input name="name" class="form-control" type="text" value="mm" readonly>
+                              <input id="userName" name="name" class="form-control" type="text" value="mm" readonly>
                             </div>
                           </div>
                           <div class="form-group">
                             <label class="col-lg-2 control-label">Email:</label>
                             <div class="col-lg-10">
-                              <input name="email" class="form-control" type="text" value="janesemail@gmail.com">
+                              <input id="userEmail" name="email" class="form-control" type="text" value="janesemail@gmail.com">
                             </div>
                           </div>
                           <div class="form-group">
@@ -103,16 +103,16 @@ Author Julian Suttner, Niklas Hatje, Cedric Deege
                           <div class="form-group">
                             <label class="col-lg-2 control-label">City, postal code:</label>
                             <div class="col-lg-5">
-                              <input name="city" class="form-control" type="text" value="Hamburg">
+                              <input id="userCity" name="city" class="form-control" type="text" value="Hamburg">
                             </div>
                             <div class="col-lg-5">
-                              <input name="code" class="form-control" type="text" value="12345">
+                              <input id="userCode" name="code" class="form-control" type="text" value="12345">
                             </div>
                           </div>
                           <div class="form-group">
                             <label class="col-lg-2 control-label">Address:</label>
                             <div class="col-lg-10">
-                              <input name="address" class="form-control" type="text" value="Teststraße 2">
+                              <input id="userStreet" name="address" class="form-control" type="text" value="Teststraße 2">
                             </div>
                           </div>
                           <div class="form-group">
@@ -222,6 +222,8 @@ Author Julian Suttner, Niklas Hatje, Cedric Deege
         <script src="js/alertify.js"></script>
 
         <script src="js/settings.js"></script>
+        
+        <script src="js/loadUserData.js"></script>
 
     </body>
 </html>
