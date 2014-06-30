@@ -141,24 +141,6 @@ Author Julian Suttner, Niklas Hatje, Cedric Deege
                       </div>
                       <div class="form-group">
                         <label class="col-md-2 control-label"></label>
-                        <div class="col-md-8">
-                          <input class="form-control" type="text" placeholder="MarketName">
-                        </div>
-                        <div class="col-md-2">
-                          <input type="button" class="btn btn-default findM" value="Find Market">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-md-2 control-label"></label>
-                        <div class="col-md-8">
-                          <input class="form-control" type="text" placeholder="MarketName">
-                        </div>
-                        <div class="col-md-2">
-                          <input type="button" class="btn btn-default findM" value="Find Market">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-md-2 control-label"></label>
                         <div class="col-md-10">
                           <input id="addMarketBtn" type="button" class="btn btn-primary" value="Add Market">
                           <input id="saveMarketBtn" type="button" class="btn btn-primary" value="Save Changes">
