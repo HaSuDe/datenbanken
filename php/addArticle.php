@@ -44,7 +44,7 @@
 
                         /*Add Article to Articles Table*/
                         $imagePathDB = 'article/'.$tsSurveyImage.'.'.$extension;
-                        $query2 = "INSERT INTO Articles(name, image) VALUES ('$articleName', '$imagePath')";
+                        $query2 = "INSERT INTO Articles(name, image) VALUES ('$articleName', '$imagePathDB')";
                         $result2 = mysql_query($query2);
                         if(!($result2 == true)){
                             $_SESSION['status'] = 'Error while creating new Article, please try again';
