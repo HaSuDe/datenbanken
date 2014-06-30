@@ -20,7 +20,7 @@ $size2 = mysql_num_rows($result2);
 
 
 
-if($size1 == 0 && $size2 == 0){
+if($size1 == 0 || $size2 == 0){
 
 	/*Add Article to Articles Table*/
 	$query3 = "INSERT INTO Supermarkets(name, street, city, code, country, longitude, latitude) VALUES ('$supermarketName', '$supermarketStreet', '$supermarketCity', '$supermarketZipCode', '$supermarketCountry', '$supermarketLongitude', '$supermarketLatitude')";

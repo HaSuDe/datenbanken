@@ -102,7 +102,7 @@ $(document).ready(function() {
 		    			$(event.target).text(originalContent);
 		    		// if amount then check if every key is a number else reset text
 		    		} else if($(event.target).hasClass('amount')) {
-		    			var text = $(event.target).text()
+		    			var text = $(event.target).text();
 						if (text.match(/[^0-9]/)) {
 							console.log("das ist keine Zahl");
 							$(event.target).text(originalContent);
