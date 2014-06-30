@@ -13,10 +13,22 @@ $(document).ready(function() {
 		} else if (e.target.id === "savePersonalBtn") {
 			changePersonalSettings();
 		} else if (e.target.id === "addMarketBtn") {
+			$('#marketForm').children('div:last').before(
+				'<div class="form-group">' +
+                    '<label class="col-md-2 control-label"></label>' +
+                        '<div class="col-md-8">'+
+                        	'<input class="form-control" type="text" placeholder="MarketName">' +
+                        '</div>' +
+                        '<div class="col-md-2">' +
+                        	'<input type="button" class="btn btn-default findM" value="Find Market">'+
+                        '</div>'+
+                      '</div>')
 
 		} else if (e.target.id === "saveMarketBtn") {
+			console.log();
 
 		} else if (e.target.id === "cancelMarketBtn") {
+			window.location.replace('settings.php');
 		} else if ($(e.target).hasClass('marketChooser')) {
 			var market = $(e.target).text();
 			var inputField = $('#marketForm').children('div:eq(' + findMIndex + ')').children('div').children('input[type=text]');
@@ -32,8 +44,22 @@ $(document).ready(function() {
 		}
 	});
 
-	function loadValues(username) {
+	function loadValues() {
 
+	}
+
+	function saveMarkets() {
+		$.each($('#marketForm').children().children().children('input[type=text]')) {
+			$.post( "php/saveMarket.php", {market : $(this).val(), user : $('#userName').text()}, function(data) {
+
+			}, 'json')
+			.fail(function(data)) {
+				alertify.error("Error while saving markets. Please try again");
+				console.log(data);
+				return;
+			}
+			alertify.success("Saved all Markets");
+		}
 	}
 
 	function changePersonalSettings() {
