@@ -59,6 +59,10 @@ $(document).ready(function() {
                     $('#findMarketM').modal();
                 });
 
+                $('.finderedit').on('click', function(e) {
+                    $('#findMarketM').modal();
+                });
+
                 $(document).on('keyup', function(e) {
                     if($(e.target).hasClass("modalSearch")) {
                         findMarkets();
@@ -126,6 +130,7 @@ $(document).ready(function() {
             var market = $(event.target).text().replace(/\:.*/,'');
             console.log(market);
             $('#marketFinder').val(market);
+            $('.finderedit').val(market);
             $('#findMarketM').modal('hide');
         }
     });
