@@ -56,6 +56,15 @@
                             $result3 = mysql_query($query3);
                             $row = mysql_fetch_object($result3);
 
+                            $what = array("ä", "ö", "ü", "Ä", "Ö", "Ü", "ß"); 
+                            $how = array("ae", "oe", "ue", "Ae", "Oe", "Ue", "ss");
+                            $articleName = str_replace($what,$how,$articleName);
+                            $articleBrand = str_replace($what,$how,$articleBrand);
+                            $articlePrize = str_replace($what,$how,$articlePrize);
+                            $articleAmount = str_replace($what,$how,$articleAmount);
+                            $articleAmountUnit = str_replace($what,$how,$articleAmountUnit);
+                            $articleSupermarket = str_replace($what,$how,$articleSupermarket);
+
                             /*Create Article in MarketArticleManagement*/
                             $query4 = "INSERT INTO MarketArticleManagement VALUES ('$articleSupermarket', '$row->articleID', '$articlePrize', ($articlePrize/$articleAmount), '$articleAmountUnit', '$articleAmount', '$articleBrand')";
                             $result4 = mysql_query($query4);

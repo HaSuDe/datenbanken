@@ -11,9 +11,7 @@ $(document).ready(function() {
 			findMIndex = $(e.target).parent().parent().index();
 			console.log(findMIndex);
 		} else if (e.target.id === "savePersonalBtn") {
-
-		} else if (e.target.id === "cancelPersonalBtn") {
-
+			changePersonalSettings();
 		} else if (e.target.id === "addMarketBtn") {
 
 		} else if (e.target.id === "saveMarketBtn") {
@@ -38,8 +36,19 @@ $(document).ready(function() {
 
 	}
 
-	function changePersonalSettings(username, email, password, password2, city, code, address) {
+	function changePersonalSettings() {
+		// get username
+		var user = $('#userName').text();
+		console.log(user);
+		$.post( "php/updateUserData.php", $('#personalForm').serialize(), function(data) {
+			alertify.success("You have saved your changings successfully");
+		}, 'json')
+		.fail(function(data) {
+			alertify.error("Error while saving user data. Please try again.");
+			console.log(data);
+		}); 
 
+		
 	}
 
 	function findMarkets() {
