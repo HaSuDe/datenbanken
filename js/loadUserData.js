@@ -1,8 +1,8 @@
 $(document).ready(function() {
     
-    var id;
+    var userName = $('#userName').val();
 
-    $.post( 'loadUserData.php',{userID : id}, function(data) {
+    $.post( 'loadUserData.php',{userName : userName}, function(data) {
         // if post was successful
         console.log(data);
         
