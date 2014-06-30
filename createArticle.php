@@ -44,7 +44,7 @@
                         <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo "".$_SESSION["username"]."" ?><b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                          <li><a href="./home.html">Home</a></li>
+                          <li><a href="./home.php">Home</a></li>
                           <li><a href="./userLists.php">My Lists</a></li>
                           <li class="active"><a href="./createArticle.php">Create Article</a></li>
                           <li><a href="./createSupermarket.php">Create Supermarket</a></li>
