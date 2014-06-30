@@ -188,8 +188,7 @@ function getPrize(row, articleN, rowNmbr, oriContent, clicked, e){
 	// if something went wrong, give error message and reset text
 	.fail(function(data) {
 		alertify.error("Oops Something went wrong please try again! Maybe its just a typing mistake :)");
-		if(clicked)
-			$(e.target).text(oriContent);
+		$('#myTable td.article:eq(' + row +')').text(oriContent);
 		console.log("Something went wrong in getBestPrize.php. Maybe no entry found? Or just not connected in time.");
 		console.log(data);
 	})
