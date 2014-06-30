@@ -37,7 +37,7 @@
                       <span class="icon-bar"></span>
                       <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Logo</a>
+                      <a class="navbar-brand" href="./home.php">Logo</a>
                   </div>
 
                   <!-- Collect the nav links, forms, and other content for toggling -->
@@ -53,7 +53,7 @@
                           <li class="active"><a href="./createSupermarket.php">Create Supermarket</a></li>
                           <li><a href="./articleOverview.php">Article Overview</a></li>
                           <li class="divider"></li>
-                          <li><a href="#">Settings</a></li>
+                          <li><a href="./settings.php">Settings</a></li>
                           <li class="divider"></li>
                           <li><a href="./logout.php">Logout</a></li>
                         </ul>
